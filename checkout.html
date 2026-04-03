@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MODOLL | Cart & Checkout</title>
+    <script src="assets/js/lang.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/checkout.css">
+</head>
+<body data-site-page="none">
+
+    <div id="site-header"></div>
+
+    <main class="checkout-page">
+        <section class="container checkout-top">
+            <h1>CART & CHECKOUT</h1>
+            <ol class="checkout-steps" aria-label="Checkout progress">
+                <li class="active"><span>Cart</span></li>
+                <li><span>Shipping</span></li>
+                <li><span>Payment</span></li>
+                <li><span>Confirmation</span></li>
+            </ol>
+        </section>
+
+        <section class="container checkout-layout">
+            <section class="cart-column">
+                <h2>ITEMS IN YOUR CART</h2>
+                <article class="cart-item hand-drawn-box">
+                    <div class="item-preview">
+                        <div class="preview-box">
+                            <i class="fa-regular fa-image"></i>
+                            <p>Product Preview</p>
+                        </div>
+                        <button type="button" class="mini-link"><i class="fa-solid fa-magnifying-glass-plus"></i> Enlarge Preview</button>
+                    </div>
+                    <div class="item-content">
+                        <section class="item-detail-box">
+                            <h3>Product Details</h3>
+                            <p><strong>Product name:</strong> Custom Wooden Doll Frame 18x18</p>
+                        </section>
+                        <section class="item-detail-box tint-mint">
+                            <h4>CUSTOMIZATION SUMMARY</h4>
+                            <ul>
+                                <li><strong>Doll:</strong> Brown Hair, Blue Outfit, Glasses</li>
+                                <li><strong>Background:</strong> Beach Scene</li>
+                                <li><strong>Frame:</strong> 18x18 Natural Wood, with Glass</li>
+                            </ul>
+                            <p class="micro-note">This preview is final product reference.</p>
+                        </section>
+                        <div class="item-actions">
+                            <a class="btn btn-outline" href="custom.html">Edit Design</a>
+                            <button type="button" class="btn btn-outline btn-danger" id="removeItemBtn">Remove Item</button>
+                        </div>
+                        <div class="qty-row">
+                            <label for="qtyInput">Quantity</label>
+                            <div class="qty-control">
+                                <button type="button" class="qty-btn" id="qtyMinus" aria-label="Decrease quantity">-</button>
+                                <input id="qtyInput" type="number" value="1" min="0" max="99" inputmode="numeric">
+                                <button type="button" class="qty-btn" id="qtyPlus" aria-label="Increase quantity">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+            <aside class="summary-column">
+                <h2>ORDER SUMMARY</h2>
+                <section class="hand-drawn-box summary-box">
+                    <h3>Price Breakdown</h3>
+                    <dl class="price-list">
+                        <div><dt>Base Product Price:</dt><dd data-price-item="base">$120</dd></div>
+                        <div><dt>Background Add-on:</dt><dd data-price-item="background">$15</dd></div>
+                        <div><dt>Frame Add-ons:</dt><dd data-price-item="frame">$20</dd></div>
+                        <div><dt>Extra Customization:</dt><dd data-price-item="extra">$10</dd></div>
+                    </dl>
+                    <div class="sum-row">
+                        <span>Subtotal:</span>
+                        <strong id="subtotalPrice">$165</strong>
+                    </div>
+                    <div class="shipping-box">
+                        <div class="ship-line">
+                            <span>Shipping Fee:</span>
+                            <strong id="shippingFee">$7</strong>
+                        </div>
+                        <p>Estimated Delivery: 5-7 days</p>
+                    </div>
+                    <div class="total-row">
+                        <span>Total Price</span>
+                        <strong id="totalPrice">$172</strong>
+                    </div>
+                    <div class="support-notes">
+                        <span>Delivery within X days</span>
+                        <span>Preview is final reference</span>
+                        <span>Support available via <a href="contact.html">link</a></span>
+                    </div>
+                </section>
+
+                <section class="hand-drawn-box form-box sticky-note-mint">
+                    <h3>Checkout Section</h3>
+                    <form id="checkoutForm" action="#" method="post">
+                        <label for="fullName">Full Name</label>
+                        <input id="fullName" name="fullName" type="text" required>
+
+                        <label for="phone">Phone Number</label>
+                        <input id="phone" name="phone" type="tel" required>
+
+                        <label for="address">Shipping Address</label>
+                        <input id="address" name="address" type="text" required>
+
+                        <label for="note">Optional Note</label>
+                        <textarea id="note" name="note" rows="3"></textarea>
+
+                        <h4>Payment Method</h4>
+                        <label class="radio-line">
+                            <input type="radio" name="payment" value="bank" checked>
+                            <span>Bank Transfer</span>
+                        </label>
+                        <label class="radio-line">
+                            <input type="radio" name="payment" value="cod">
+                            <span>COD</span>
+                        </label>
+                        <label class="radio-line">
+                            <input type="radio" name="payment" value="online">
+                            <span>Online Payment</span>
+                        </label>
+
+                        <button class="btn btn-dark place-order-btn" type="submit">PLACE ORDER</button>
+                        <a href="shop.html" class="continue-link">Continue Shopping</a>
+                    </form>
+                </section>
+            </aside>
+        </section>
+    </main>
+
+    <div id="site-footer"></div>
+
+    <script>window.MODOLL_PAGE_SCRIPTS = ['assets/js/music-nav.js', 'assets/js/shop.js', 'assets/js/checkout.js'];</script>
+    <script src="assets/js/layout.js"></script>
+</body>
+</html>

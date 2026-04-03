@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MODOLL | Contact</title>
+    <script src="assets/js/lang.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/contact.css">
+</head>
+<body data-site-page="contact">
+
+    <div id="site-header"></div>
+
+    <main>
+        <section class="contact-hero">
+            <div class="container hero-wrap">
+                <div class="hero-copy">
+                    <h1 data-i18n="ct_title">Let's design your memory together.</h1>
+                    <p data-i18n="ct_intro">Share with us your moments and ideas. We will reply quickly with a clear suggestion for your own customized wooden gift.</p>
+                    <div class="hero-pills">
+                        <span class="hero-pill"><i class="fa-regular fa-clock"></i> <span data-i18n="ct_pill_1">Response in 24h</span></span>
+                        <span class="hero-pill"><i class="fa-solid fa-palette"></i> <span data-i18n="ct_pill_2">Mood-first consultation</span></span>
+                        <span class="hero-pill"><i class="fa-solid fa-language"></i> <span data-i18n="ct_pill_3">EN / VI / FR support</span></span>
+                    </div>
+                </div>
+                <div class="hero-card hand-drawn-box sticky-note-mint">
+                    <h3 data-i18n="ct_card_title">Support Hours</h3>
+                    <p><strong data-i18n="ct_hours_week">Mon - Sat:</strong> 09:00 - 19:00</p>
+                    <p><strong data-i18n="ct_hours_sun">Sunday:</strong> 10:00 - 16:00</p>
+                    <p class="small-note" data-i18n="ct_hours_note">For urgent gifts, please mark "Rush order" in your message.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="container contact-grid">
+            <article class="hand-drawn-box">
+                <h2 class="section-title left" data-i18n="form_title">Send us your brief</h2>
+                <p class="section-desc" data-i18n="form_desc">Share your contact info and what you want to customize. We will send a proposal and estimated quote.</p>
+                <form class="contact-form" action="#" method="post">
+                    <label for="ct-name" data-i18n="lb_name">Your name</label>
+                    <input id="ct-name" name="name" type="text" placeholder="Nguyen Van A" required>
+
+                    <label for="ct-email" data-i18n="lb_email">Email</label>
+                    <input id="ct-email" name="email" type="email" placeholder="you@example.com" required>
+
+                    <label for="ct-topic" data-i18n="lb_topic">Request type</label>
+                    <select id="ct-topic" name="topic">
+                        <option value="postpurchase" data-i18n="opt_postpurchase">Postpurchase support</option>
+                        <option value="special" data-i18n="opt_special_orders">Special orders</option>
+                        <option value="feedback" data-i18n="opt_questions_feedback">Questions/feedbacks for Modoll Team</option>
+                    </select>
+
+                    <label for="ct-message" data-i18n="lb_message">Message</label>
+                    <textarea id="ct-message" name="message" rows="5" data-i18n-placeholder="ph_message" placeholder="Describe your story, preferred style, expected date..."></textarea>
+
+                    <button class="btn btn-dark" type="submit" data-i18n="btn_submit">Send message</button>
+                </form>
+            </article>
+
+            <aside class="contact-side">
+                <div class="hand-drawn-box sticky-note">
+                    <h3 data-i18n="info_title">Direct channels</h3>
+                    <ul class="channel-list">
+                        <li><i class="fa-regular fa-envelope"></i> hello@modoll.vn</li>
+                        <li><i class="fa-solid fa-phone"></i> (+84) 0909 123 456</li>
+                        <li><i class="fa-brands fa-instagram"></i> @modoll.story</li>
+                        <li><i class="fa-brands fa-facebook-messenger"></i> MODOLL Support</li>
+                    </ul>
+                </div>
+
+                <div class="hand-drawn-box">
+                    <h3 data-i18n="visit_title">Visit our studio</h3>
+                    <p class="studio-address">145 Nguyen Van Cu, District 5, Ho Chi Minh City</p>
+                    <div class="map-placeholder" aria-hidden="true">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <a href="about.html" class="btn btn-outline" data-i18n="btn_about_link">Explore our story</a>
+                </div>
+            </aside>
+        </section>
+
+        <section class="container faq-section">
+            <h2 class="section-title" data-i18n="faq_title">Quick FAQ</h2>
+            <div class="faq-grid" id="contactFaq">
+                <details class="hand-drawn-box">
+                    <summary data-i18n="faq_q1">Can I attach a photo reference?</summary>
+                    <p data-i18n="faq_a1">Yes. Share your references in the message and we will guide the best format in our reply.</p>
+                </details>
+                <details class="hand-drawn-box sticky-note-mint">
+                    <summary data-i18n="faq_q2">How long for first mockup?</summary>
+                    <p data-i18n="faq_a2">Usually within 24-48 hours after we confirm your requirements.</p>
+                </details>
+                <details class="hand-drawn-box sticky-note">
+                    <summary data-i18n="faq_q3">Do you support urgent orders?</summary>
+                    <p data-i18n="faq_a3">Yes, depending on current capacity. Please mark your deadline clearly.</p>
+                </details>
+            </div>
+        </section>
+    </main>
+
+    <div id="site-footer"></div>
+
+    <script>window.MODOLL_PAGE_SCRIPTS = ['assets/js/music-nav.js', 'assets/js/contact.js'];</script>
+    <script src="assets/js/layout.js"></script>
+</body>
+</html>

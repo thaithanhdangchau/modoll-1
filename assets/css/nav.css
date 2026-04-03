@@ -1,0 +1,55 @@
+@import url('music-nav.css');
+/**
+ * Thanh điều hướng trên cùng — đồng bộ với custom.html (home.css).
+ * Dùng chung: biến màu/font từ :root của từng trang.
+ */
+
+.header {
+    padding: 16px 0;
+    background: rgba(252, 254, 232, 0.9);
+    border-bottom: 3px dashed var(--clr-brown);
+    position: sticky; top: 0; z-index: 1000;
+}
+.logo-group {
+    display: flex; align-items: center; gap: 12px; font-family: var(--font-head); font-size: 36px;
+    color: var(--clr-brown); font-weight: bold;
+}
+.logo-img { width: 50px; height: 50px; background: var(--clr-white); border-radius: 50%; border: 2px solid var(--clr-brown); display: flex; align-items: center; justify-content: center; }
+
+.nav-links { display: flex; gap: 16px; align-items: center; }
+.nav-item {
+    font-family: var(--font-head); font-weight: 700; color: var(--clr-brown);
+    text-decoration: none; opacity: 0.5; transition: 0.2s ease; font-size: 16px;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+}
+.nav-item:hover { opacity: 1; transform: translateY(-2px); }
+.nav-item:active { transform: scale(0.9); opacity: 1; }
+.nav-item.active { opacity: 1; border-bottom: 2px solid var(--clr-brown); }
+
+.nav-cart {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--clr-brown);
+    font-size: 22px;
+    line-height: 1;
+    padding: 4px;
+    margin-left: 4px;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+.nav-cart i {
+    color: var(--clr-brown);
+}
+.nav-cart:hover { transform: translateY(-2px); }
+.nav-cart:active { transform: scale(0.9); }
+
+.lang-switch { display: flex; gap: 8px; margin-left: 12px; }
+.lang-btn {
+    background: var(--clr-white); border: 2px solid var(--clr-brown); font-family: var(--font-head); font-size: 18px;
+    padding: 2px 12px; border-radius: 20px; cursor: pointer; color: var(--clr-brown);
+    transition: all 0.15s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}
+.lang-btn.active { background: var(--clr-mint); box-shadow: 2px 2px 0px var(--clr-brown); transform: translate(-1px, -1px); }
+.lang-btn:active { transform: scale(0.85) translate(1px, 1px) !important; box-shadow: 0px 0px 0px transparent !important; }

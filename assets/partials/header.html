@@ -1,0 +1,38 @@
+<header class="header">
+    <div class="container flex justify-between items-center">
+        <div class="logo-group logo-group--music">
+            <a href="home.html" class="logo-group-link">
+                <div class="logo-img"><i class="fa-solid fa-face-smile" style="font-size:28px;"></i></div>
+                MODOLL
+            </a>
+            <button type="button" class="vinyl-toggle" id="modollMusicToggle" aria-pressed="false" aria-label="Toggle background music" title="Music">
+                <span class="vinyl-wrap">
+                    <i class="fa-solid fa-compact-disc" aria-hidden="true"></i>
+                    <span class="music-notes" aria-hidden="true">
+                        <i class="fa-solid fa-music note n1"></i>
+                        <i class="fa-solid fa-music note n2"></i>
+                        <i class="fa-solid fa-music note n3"></i>
+                    </span>
+                </span>
+            </button>
+        </div>
+        <nav class="nav-links">
+            <a href="home.html" class="nav-item" data-nav="home" data-i18n="nav_home">Home</a>
+            <a href="about.html" class="nav-item" data-nav="about" data-i18n="nav_about">About Us</a>
+            <a href="seo.html" class="nav-item" data-nav="blog" data-i18n="nav_blog">Blog</a>
+            <a href="custom.html" class="nav-item" data-nav="custom" data-i18n="nav_custom">Customize</a>
+            <a href="shop.html" class="nav-item" data-nav="shop" data-i18n="nav_shop">Shop</a>
+            <a href="contact.html" class="nav-item" data-nav="contact" data-i18n="nav_contact">Contact</a>
+            <a href="checkout.html" class="nav-cart" aria-label="Shopping cart" title="Cart"><i class="fa-solid fa-cart-shopping"></i></a>
+            <div class="lang-switch">
+                <button type="button" class="lang-btn active" data-lang="en" onclick="setLanguage('en')">EN</button>
+                <button type="button" class="lang-btn" data-lang="vi" onclick="setLanguage('vi')">VI</button>
+                <button type="button" class="lang-btn" data-lang="fr" onclick="setLanguage('fr')">FR</button>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<audio id="modollMusic" preload="auto" loop playsinline>
+    <source src="assets/music/honey_jam.mp3" type="audio/mpeg">
+</audio>
