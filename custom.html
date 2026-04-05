@@ -8,7 +8,7 @@
     <script src="assets/js/lang.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="assets/css/home.css">
-    <link rel="stylesheet" href="assets/css/custom.css">
+    <link rel="stylesheet" href="assets/css/custom.css?v=4">
     <link rel="stylesheet" href="assets/css/frame-customize.css">
 </head>
 
@@ -38,16 +38,15 @@
                 <section id="studio-doll" class="custom-studio-doll custom-studio-slide" aria-hidden="true">
                     <section class="custom-hero">
                         <div class="container">
-                            <h1 data-i18n="cu_title">DOLL CUSTOMIZE STUDIO</h1>
-                            <p data-i18n="cu_intro">Pick a mood, walk through each step, and watch your wooden doll
-                                preview update. Save your draft to continue later.</p>
+                            <h1 data-i18n="cu_title">DOLL CUSTOMIZATION STUDIO</h1>
+                            <p data-i18n="cu_intro">Follow the steps below to customize your doll. Your draft is automatically saved.</p>
                         </div>
                     </section>
 
                     <div class="container">
                         <nav class="custom-steps" aria-label="Customize steps">
                             <button type="button" class="custom-step-btn is-active">1. Base</button>
-                            <button type="button" class="custom-step-btn">2. Face</button>
+                            <button type="button" class="custom-step-btn">2. Facial Features</button>
                             <button type="button" class="custom-step-btn">3. Outfit</button>
                             <button type="button" class="custom-step-btn">4. Review</button>
                         </nav>
@@ -72,19 +71,19 @@
                                 </div>
                                 <div class="custom-panel" data-panel="1">
                                     <h2 class="panel-title">2. Facial Features & Hair</h2>
-                                    <p class="panel-desc">Customize your doll's face.</p>
+                                    <p class="panel-desc">Customize your doll's facial features and hair.</p>
                                     <div class="feature-accordion" id="faceAccordion">
                                     </div>
                                 </div>
                                 <div class="custom-panel" data-panel="2">
                                     <h2 class="panel-title">3. Outfit</h2>
-                                    <p class="panel-desc">Pick an outfit.</p>
+                                    <p class="panel-desc">Choose an outfit for your doll.</p>
                                     <div class="option-grid outfit-list" id="outfitList">
                                     </div>
                                 </div>
                                 <div class="custom-panel" data-panel="3">
                                     <h2 class="panel-title">4. Review</h2>
-                                    <p class="panel-desc">Summary of your designed doll.</p>
+                                    <p class="panel-desc">Review your customized doll.</p>
                                     <div class="hand-drawn-box" style="margin-top:16px;">
                                         <ul id="customReviewSummary"
                                             style="font-size:16px;line-height:1.6;list-style:none;padding:0;margin:0;">
@@ -96,18 +95,17 @@
 
                         <div class="custom-summary">
                             <div>
-                                <span data-i18n="sum_label">Estimated from</span>
+                                <span data-i18n="sum_label">Starting from</span>
                                 <strong class="custom-summary-price" id="customPrice">199,000 VND</strong>
                                 <p style="font-size:0.9rem;opacity:0.85;margin-top:6px;" data-i18n="sum_note">Final
-                                    quote after size & frame add-ons.</p>
+                                    price will be calculated after selecting frame and add-ons.</p>
                             </div>
                             <div class="custom-summary-actions">
                                 <button type="button" class="btn btn-outline" id="customReset"
                                     data-i18n="btn_reset">Reset draft</button>
-                                <a href="#studio-frame" class="btn btn-dark" data-i18n="btn_next_frame">Frame &
-                                    add-ons</a>
+                                <a href="#studio-frame" class="btn btn-dark" data-i18n="btn_next_frame">Next: Frame & Add-ons</a>
                                 <button type="button" class="btn btn-dark" id="customCart"><span
-                                        data-i18n="btn_cart">Add to cart</span> (<span data-i18n="btn_cart_hint">Coming
+                                        data-i18n="btn_cart">Add to Cart</span> (<span data-i18n="btn_cart_hint">Coming
                                         soon</span>)</button>
                             </div>
                         </div>
@@ -281,7 +279,7 @@
 
     <div id="site-footer"></div>
 
-    <script>window.MODOLL_PAGE_SCRIPTS = ['assets/js/doll_assets.js', 'assets/js/music-nav.js', 'assets/js/custom.js', 'assets/js/frame-customize.js'];</script>
+    <script>window.MODOLL_PAGE_SCRIPTS = ['assets/js/doll_assets.js?v=2', 'assets/js/music-nav.js', 'assets/js/custom.js?v=2', 'assets/js/frame-customize.js'];</script>
     <script src="assets/js/layout.js"></script>
 </body>
 

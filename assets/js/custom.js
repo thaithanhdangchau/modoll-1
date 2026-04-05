@@ -9,15 +9,14 @@ const customTexts = {
         nav_about: 'ABOUT US',
         nav_contact: 'CONTACT',
         nav_blog: 'BLOG',
-        cu_title: 'DOLL CUSTOMIZE STUDIO',
-        cu_intro: 'Pick a mood, walk through each step, and watch your wooden doll preview update. Save your draft to continue later.',
-        cu_preview_hint: 'Preview — final wood carving may vary slightly.',
-        cu_mood: 'Mood & palette',
+        cu_title: 'DOLL CUSTOMIZATION STUDIO',
+        cu_intro: 'Follow the steps below to customize your doll. Your draft is automatically saved.',
+        cu_preview_hint: 'Preview — the final wood carving may vary slightly.',
+        cu_mood: 'Mood & Palette',
         cu_step1: '1. Base',
-        cu_step2: '2. Face',
-        cu_step3: '3. Hair',
-        cu_step4: '4. Outfit',
-        cu_step5: '5. Review',
+        cu_step2: '2. Facial Features',
+        cu_step3: '3. Outfit',
+        cu_step4: '4. Review',
         'p1_title': 'Doll base',
         'p1_desc': 'Choose the scale of your set — we carve from a single plank story.',
         'p1_shape': 'Body silhouette',
@@ -46,12 +45,12 @@ const customTexts = {
         'opt_o2': 'Mint garden',
         'opt_o3': 'Cream classic',
         'opt_o4': 'Natural wood',
-        'sum_label': 'Estimated from',
-        'sum_note': 'Final quote after size & frame add-ons.',
-        'btn_reset': 'Reset draft',
-        'btn_next_frame': 'Frame & add-ons',
-        'btn_cart': 'Add to cart',
-        'btn_cart_hint': 'Coming soon',
+        sum_label: 'Starting from',
+        sum_note: 'The final price will be calculated after selecting the frame and add-ons.',
+        btn_reset: 'Reset Draft',
+        btn_next_frame: 'Next: Frame & Add-ons',
+        btn_cart: 'Add to Cart',
+        btn_cart_hint: 'Coming soon',
         fc_title: 'Enhance your product',
         fc_sub: 'Add special touches to make your product more meaningful and unique.',
         bc_product: 'Product',
@@ -132,15 +131,14 @@ const customTexts = {
         nav_about: 'VỀ CHÚNG TÔI',
         nav_contact: 'LIÊN HỆ',
         nav_blog: 'BLOG',
-        cu_title: 'XƯỞNG TÙY CHỈNH BÚP BÊ',
-        cu_intro: 'Chọn mood, hoàn thành từng bước và xem bản xem trước búp bê gỗ thay đổi. Lưu nháp để tiếp tục sau.',
-        cu_preview_hint: 'Xem trước — chi tiết đục gỗ thực tế có thể lệch nhẹ.',
+        cu_title: 'XƯỞNG CHẾ TÁC BÚP BÊ',
+        cu_intro: 'Làm theo các bước dưới đây để tuỳ chỉnh búp bê của bạn. Bản nháp của bạn sẽ được lưu tự động.',
+        cu_preview_hint: 'Bản xem trước — chi tiết đục gỗ thực tế có thể thay đổi nhẹ.',
         cu_mood: 'Mood & bảng màu',
-        cu_step1: '1. Nền',
-        cu_step2: '2. Mặt',
-        cu_step3: '3. Tóc',
-        cu_step4: '4. Trang phục',
-        cu_step5: '5. Tóm tắt',
+        cu_step1: '1. Đế',
+        cu_step2: '2. Ngũ Quan',
+        cu_step3: '3. Trang Phục',
+        cu_step4: '4. Xem lại',
         p1_title: 'Kiểu bộ',
         p1_desc: 'Chọn quy mô — chúng tôi đục từ một câu chuyện trên tấm gỗ.',
         p1_shape: 'Dáng thân búp bê',
@@ -169,10 +167,10 @@ const customTexts = {
         opt_o2: 'Mint vườn',
         opt_o3: 'Kem cổ điển',
         opt_o4: 'Gỗ tự nhiên',
-        sum_label: 'Ước tính từ',
-        sum_note: 'Báo giá cuối sau khi chọn khung & kích thước.',
-        btn_reset: 'Xóa nháp',
-        btn_next_frame: 'Khung & phụ kiện',
+        sum_label: 'Giá từ',
+        sum_note: 'Báo giá cuối cùng sẽ được tính sau khi chọn khung và phụ kiện.',
+        btn_reset: 'Làm lại',
+        btn_next_frame: 'Tiếp theo: Khung & Phụ kiện',
         btn_cart: 'Thêm vào giỏ',
         btn_cart_hint: 'Sắp ra mắt',
         fc_title: 'Nâng cấp sản phẩm',
@@ -561,7 +559,9 @@ function initCustomize() {
             noneChip.className = 'option-chip' + (!state.features[k] ? ' is-selected' : '');
             noneChip.innerHTML = '<i class="fa-solid fa-ban"></i><span>None</span>';
             noneChip.onclick = () => {
-                state.features[k] = null; persist(); renderStage(); renderFacePanel(); updateReviewText();
+                grid.querySelectorAll('.option-chip').forEach(c => c.classList.remove('is-selected'));
+                noneChip.classList.add('is-selected');
+                state.features[k] = null; persist(); renderStage(); updateReviewText();
             };
             grid.appendChild(noneChip);
 
@@ -571,7 +571,9 @@ function initCustomize() {
                 chip.className = 'option-chip' + (isPicked ? ' is-selected' : '');
                 chip.innerHTML = '<img src="assets/doll_parts/' + encodeURIComponent(folder) + '/' + encodeURIComponent(file) + '" style="max-height:40px;margin-bottom:8px;object-fit:contain;"><span>' + file.replace('.png','') + '</span>';
                 chip.onclick = () => {
-                    state.features[k] = file; persist(); renderStage(); renderFacePanel(); updateReviewText();
+                    grid.querySelectorAll('.option-chip').forEach(c => c.classList.remove('is-selected'));
+                    chip.classList.add('is-selected');
+                    state.features[k] = file; persist(); renderStage(); updateReviewText();
                 };
                 grid.appendChild(chip);
             });
@@ -582,11 +584,12 @@ function initCustomize() {
 
             header.onclick = () => {
                 const isOpen = header.classList.contains('is-open');
-                container.querySelectorAll('.accordion-header').forEach(h => h.classList.remove('is-open'));
-                container.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('is-open'));
                 if (!isOpen) {
                     header.classList.add('is-open');
                     itemDiv.classList.add('is-open');
+                } else {
+                    header.classList.remove('is-open');
+                    itemDiv.classList.remove('is-open');
                 }
             };
         });
@@ -603,7 +606,9 @@ function initCustomize() {
         noneChip.className = 'option-chip' + (!state.outfit ? ' is-selected' : '');
         noneChip.innerHTML = '<i class="fa-solid fa-ban"></i><span>None</span>';
         noneChip.onclick = () => {
-            state.outfit = null; persist(); renderStage(); renderOutfitPanel(); updateReviewText();
+            container.querySelectorAll('.option-chip').forEach(c => c.classList.remove('is-selected'));
+            noneChip.classList.add('is-selected');
+            state.outfit = null; persist(); renderStage(); updateReviewText();
         };
         container.appendChild(noneChip);
 
@@ -614,7 +619,9 @@ function initCustomize() {
              chip.className = 'option-chip' + (isSelected ? ' is-selected' : '');
              chip.innerHTML = '<img src="assets/doll_parts/' + encodeURIComponent(folder) + '/' + encodeURIComponent(file) + '" style="height:60px;margin-bottom:8px;object-fit:contain;"><span>' + file.replace('.png','') + '</span>';
              chip.onclick = () => {
-                 state.outfit = file; persist(); renderStage(); renderOutfitPanel(); updateReviewText();
+                 container.querySelectorAll('.option-chip').forEach(c => c.classList.remove('is-selected'));
+                 chip.classList.add('is-selected');
+                 state.outfit = file; persist(); renderStage(); updateReviewText();
              };
              container.appendChild(chip);
         });
