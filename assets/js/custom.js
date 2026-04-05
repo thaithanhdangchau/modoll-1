@@ -433,121 +433,191 @@ function getLang() {
 function initCustomize() {
     const root = document.getElementById('studio-doll');
     if (!root) return;
-    const figure = root.querySelector('.doll-figure');
-    if (!figure) return;
+    const stage = document.getElementById('dollStage');
+    if (!stage) return;
 
     const stepBtns = root.querySelectorAll('.custom-step-btn');
     const panels = root.querySelectorAll('.custom-panel');
-    const swatches = root.querySelectorAll('.mood-swatch');
-    const chips = root.querySelectorAll('.option-chip');
-    const priceEl = document.getElementById('customPrice');
     const btnReset = document.getElementById('customReset');
     const btnCart = document.getElementById('customCart');
 
     let state = {
         step: 0,
-        palette: 'pink',
-        base: 'single',
-        shape: 'pillar',
-        face: 'smile',
-        hair: 'bob',
-        outfit: 'pink'
+        base: 'MODEL BÚP BÊ NỮ.svg',
+        features: {
+            'EYEGLASS': null,
+            'MẮT': null,
+            'MÀY': null,
+            'MIỆNG': null,
+            'MŨI': null,
+            'TÓC': null
+        },
+        outfit: null
     };
 
+    function persist() {
+        try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (e) {}
+    }
+
+    // Attempt to load from storage
     try {
         const raw = localStorage.getItem(STORAGE_KEY);
         if (raw) {
             const o = JSON.parse(raw);
-            state = Object.assign(state, o);
+            if (o.base) state.base = o.base;
+            if (o.step !== undefined) state.step = o.step;
+            if (o.features) state.features = o.features;
+            if (o.outfit !== undefined) state.outfit = o.outfit;
         }
     } catch (e) {}
 
-    const VALID = {
-        palette: ['cream', 'brown', 'pink', 'mint', 'white'],
-        base: ['single', 'couple', 'family'],
-        shape: ['pillar', 'cone'],
-        face: ['smile', 'wink', 'calm'],
-        hair: ['long', 'bob', 'curly', 'short'],
-        outfit: ['pink', 'mint', 'cream', 'wood']
-    };
-
-    function keepValid(key, fallback) {
-        if (VALID[key].indexOf(state[key]) === -1) state[key] = fallback;
+    function isMale() {
+        return state.base && state.base.includes('NAM');
     }
 
-    keepValid('palette', 'pink');
-    keepValid('base', 'single');
-    keepValid('shape', 'pillar');
-    keepValid('face', 'smile');
-    keepValid('hair', 'bob');
-    keepValid('outfit', 'pink');
-    if (!Number.isInteger(state.step)) state.step = 0;
-
-    function applyPalette(key) {
-        const p = PALETTES[key] || PALETTES.pink;
-        figure.style.setProperty('--skin', p.skin);
-        figure.style.setProperty('--hair', p.hair);
-        if (state.outfit === 'pink' || state.outfit === 'mint' || state.outfit === 'cream' || state.outfit === 'wood') {
-            const map = { pink: '#fed8e3', mint: '#b5d1c1', cream: '#fcfee8', wood: '#c4a574' };
-            figure.style.setProperty('--outfit', map[state.outfit] || p.outfit);
-        } else {
-            figure.style.setProperty('--outfit', p.outfit);
+    function renderStage() {
+        stage.innerHTML = '';
+        if (state.base) {
+            const img = document.createElement('img');
+            img.src = 'assets/doll_parts/' + encodeURIComponent(state.base);
+            img.className = 'layer-base';
+            stage.appendChild(img);
         }
-        swatches.forEach(function (s) {
-            s.classList.toggle('is-picked', s.getAttribute('data-palette') === key);
+        
+        ['TÓC', 'MÀY', 'MẮT', 'MŨI', 'MIỆNG', 'EYEGLASS'].forEach(k => {
+            if (state.features[k]) {
+                const img = document.createElement('img');
+                let folder = k;
+                if (k === 'TÓC') folder = isMale() ? 'TÓC NAM' : 'TÓC NỮ';
+                let filename = state.features[k];
+                img.src = 'assets/doll_parts/' + encodeURIComponent(folder) + '/' + encodeURIComponent(filename);
+                let cls = k.toLowerCase().replace(' ', '-');
+                if (cls === 'mắt') cls = 'eyes';
+                if (cls === 'mày') cls = 'eyebrows';
+                if (cls === 'mũi') cls = 'nose';
+                if (cls === 'miệng') cls = 'mouth';
+                if (cls === 'tóc') cls = 'hair';
+                img.className = 'layer-' + cls;
+                stage.appendChild(img);
+            }
+        });
+
+        if (state.outfit) {
+            const img = document.createElement('img');
+            const folder = isMale() ? 'NAM' : 'NỮ';
+            img.src = 'assets/doll_parts/' + encodeURIComponent(folder) + '/' + encodeURIComponent(state.outfit);
+            img.className = 'layer-outfit';
+            stage.appendChild(img);
+        }
+    }
+
+    function renderBasePanel() {
+        const container = document.getElementById('dollBaseList');
+        if (!container) return;
+        container.innerHTML = '';
+        DOLL_ASSETS.base.forEach(b => {
+             // We only want SVGs for cleaner looking vector or PNGs, let's filter out dups if any, but let just show all or just SVGs
+             if (b.endsWith('.png')) return; // Prefer SVGs
+             const isSelected = state.base === b;
+             const chip = document.createElement('button');
+             chip.type = 'button';
+             chip.className = 'option-chip' + (isSelected ? ' is-selected' : '');
+             chip.innerHTML = '<img src="assets/doll_parts/' + encodeURIComponent(b) + '" style="height:60px;margin-bottom:8px;object-fit:contain;"><span>' + b.replace('.svg','') + '</span>';
+             chip.onclick = () => {
+                 state.base = b;
+                 state.features = { 'EYEGLASS': null, 'MẮT': null, 'MÀY': null, 'MIỆNG': null, 'MŨI': null, 'TÓC': null };
+                 state.outfit = null;
+                 persist();
+                 renderAll();
+             };
+             container.appendChild(chip);
         });
     }
 
-    function applyHairClass() {
-        const el = figure.querySelector('.doll-hair');
-        if (!el) return;
-        el.className = 'doll-hair peg-hair';
-        if (state.hair === 'long') el.classList.add('style-long');
-        else if (state.hair === 'bob') el.classList.add('style-bob');
-        else if (state.hair === 'curly') el.classList.add('style-curly');
-        else if (state.hair === 'short') el.classList.add('style-short');
+    function renderFacePanel() {
+        const container = document.getElementById('faceAccordion');
+        if (!container) return;
+        container.innerHTML = '';
+        const order = ['TÓC', 'MÀY', 'MẮT', 'MŨI', 'MIỆNG', 'EYEGLASS'];
+        order.forEach(k => {
+            const folder = k === 'TÓC' ? (isMale() ? 'TÓC NAM' : 'TÓC NỮ') : k;
+            const items = DOLL_ASSETS.face[folder] || [];
+            
+            const itemDiv = document.createElement('div');
+            itemDiv.className = 'accordion-item';
+            
+            const header = document.createElement('button');
+            header.className = 'accordion-header';
+            header.innerHTML = '<span>' + k + ' (' + items.length + ')</span> <i class="fa-solid fa-chevron-down"></i>';
+            
+            const content = document.createElement('div');
+            content.className = 'accordion-content';
+            
+            const grid = document.createElement('div');
+            grid.className = 'option-grid';
+            
+            // "None" option
+            const noneChip = document.createElement('button');
+            noneChip.className = 'option-chip' + (!state.features[k] ? ' is-selected' : '');
+            noneChip.innerHTML = '<i class="fa-solid fa-ban"></i><span>None</span>';
+            noneChip.onclick = () => {
+                state.features[k] = null; persist(); renderStage(); renderFacePanel(); updateReviewText();
+            };
+            grid.appendChild(noneChip);
+
+            items.forEach(file => {
+                const isPicked = state.features[k] === file;
+                const chip = document.createElement('button');
+                chip.className = 'option-chip' + (isPicked ? ' is-selected' : '');
+                chip.innerHTML = '<img src="assets/doll_parts/' + encodeURIComponent(folder) + '/' + encodeURIComponent(file) + '" style="max-height:40px;margin-bottom:8px;object-fit:contain;"><span>' + file.replace('.png','') + '</span>';
+                chip.onclick = () => {
+                    state.features[k] = file; persist(); renderStage(); renderFacePanel(); updateReviewText();
+                };
+                grid.appendChild(chip);
+            });
+            content.appendChild(grid);
+            itemDiv.appendChild(header);
+            itemDiv.appendChild(content);
+            container.appendChild(itemDiv);
+
+            header.onclick = () => {
+                const isOpen = header.classList.contains('is-open');
+                container.querySelectorAll('.accordion-header').forEach(h => h.classList.remove('is-open'));
+                container.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('is-open'));
+                if (!isOpen) {
+                    header.classList.add('is-open');
+                    itemDiv.classList.add('is-open');
+                }
+            };
+        });
     }
 
-    function applyFaceClass() {
-        const el = figure.querySelector('.doll-face');
-        if (!el) return;
-        el.className = 'doll-face peg-face';
-        if (state.face === 'wink') el.classList.add('expression-wink');
-        else if (state.face === 'calm') el.classList.add('expression-soft');
-        else el.classList.add('expression-soft');
-        if (state.face === 'wink') {
-            el.innerHTML = '<i class="fa-solid fa-face-grin-wink"></i>';
-        } else if (state.face === 'calm') {
-            el.innerHTML = '<i class="fa-solid fa-face-meh"></i>';
-        } else {
-            el.innerHTML = '<i class="fa-solid fa-face-smile"></i>';
-        }
-    }
+    function renderOutfitPanel() {
+        const container = document.getElementById('outfitList');
+        if (!container) return;
+        container.innerHTML = '';
+        const folder = isMale() ? 'NAM' : 'NỮ';
+        const items = DOLL_ASSETS.outfit[folder] || [];
 
-    function applyBodyClass() {
-        const el = figure.querySelector('.doll-body');
-        el.className = 'doll-body peg-body';
-        el.innerHTML = '<span class="peg-body-tint" aria-hidden="true"></span>';
-        if (state.shape === 'cone') el.classList.add('peg-body--cone');
-        else el.classList.add('peg-body--cylinder');
-        if (state.base === 'family') el.classList.add('size-tall');
-        else if (state.base === 'single') el.classList.add('size-mini');
-    }
+        const noneChip = document.createElement('button');
+        noneChip.className = 'option-chip' + (!state.outfit ? ' is-selected' : '');
+        noneChip.innerHTML = '<i class="fa-solid fa-ban"></i><span>None</span>';
+        noneChip.onclick = () => {
+            state.outfit = null; persist(); renderStage(); renderOutfitPanel(); updateReviewText();
+        };
+        container.appendChild(noneChip);
 
-    function outfitColor() {
-        const map = { pink: '#fed8e3', mint: '#b5d1c1', cream: '#fcfee8', wood: '#c4a574' };
-        figure.style.setProperty('--outfit', map[state.outfit] || '#fed8e3');
-    }
-
-    function calcPrice() {
-        let total = PRICES.base[state.base] || PRICES.base.single;
-        if (priceEl) priceEl.textContent = total.toLocaleString('vi-VN') + ' VND';
-    }
-
-    function persist() {
-        try {
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-        } catch (e) {}
+        items.forEach(file => {
+             const isSelected = state.outfit === file;
+             const chip = document.createElement('button');
+             chip.type = 'button';
+             chip.className = 'option-chip' + (isSelected ? ' is-selected' : '');
+             chip.innerHTML = '<img src="assets/doll_parts/' + encodeURIComponent(folder) + '/' + encodeURIComponent(file) + '" style="height:60px;margin-bottom:8px;object-fit:contain;"><span>' + file.replace('.png','') + '</span>';
+             chip.onclick = () => {
+                 state.outfit = file; persist(); renderStage(); renderOutfitPanel(); updateReviewText();
+             };
+             container.appendChild(chip);
+        });
     }
 
     function setStep(i) {
@@ -565,114 +635,36 @@ function initCustomize() {
     function updateReviewText() {
         const el = document.getElementById('customReviewSummary');
         if (!el) return;
-        const lang = getLang();
-        const t = customTexts[lang] || customTexts.en;
-        const labels = {
-            base: { single: t.opt_single, couple: t.opt_couple, family: t.opt_family },
-            shape: { pillar: t.opt_shape_pillar, cone: t.opt_shape_cone },
-            face: { smile: t.opt_smile, wink: t.opt_wink, calm: t.opt_calm },
-            hair: { long: t.opt_h1, bob: t.opt_h2, curly: t.opt_h3, short: t.opt_h4 },
-            outfit: { pink: t.opt_o1, mint: t.opt_o2, cream: t.opt_o3, wood: t.opt_o4 }
-        };
-        const parts = [
-            labels.base[state.base],
-            labels.shape[state.shape] || labels.shape.pillar,
-            labels.face[state.face],
-            labels.hair[state.hair],
-            labels.outfit[state.outfit]
-        ];
-        el.textContent = parts.join(' · ');
+        el.innerHTML = '';
+        const li1 = document.createElement('li'); li1.innerText = 'Base: ' + (state.base || 'None'); el.appendChild(li1);
+        Object.keys(state.features).forEach(k => {
+             if (state.features[k]) {
+                 const li = document.createElement('li'); li.innerText = k + ': ' + state.features[k]; el.appendChild(li);
+             }
+        });
+        if (state.outfit) {
+             const li2 = document.createElement('li'); li2.innerText = 'Outfit: ' + state.outfit; el.appendChild(li2);
+        }
     }
 
-    window.modollCustomUpdateReview = updateReviewText;
+    function renderAll() {
+        renderBasePanel();
+        renderFacePanel();
+        renderOutfitPanel();
+        renderStage();
+        updateReviewText();
+        setStep(state.step);
+    }
 
     stepBtns.forEach(function (b, idx) {
-        b.addEventListener('click', function () {
-            setStep(idx);
-        });
+        b.addEventListener('click', function () { setStep(idx); });
     });
-
-    swatches.forEach(function (s) {
-        s.addEventListener('click', function () {
-            state.palette = s.getAttribute('data-palette');
-            applyPalette(state.palette);
-            outfitColor();
-            persist();
-        });
-    });
-
-    chips.forEach(function (chip) {
-        chip.addEventListener('click', function () {
-            const group = chip.dataset.group;
-            const val = chip.dataset.value;
-            root.querySelectorAll('.option-chip[data-group="' + group + '"]').forEach(function (c) {
-                c.classList.remove('is-selected');
-            });
-            chip.classList.add('is-selected');
-            if (group === 'base') state.base = val;
-            else if (group === 'shape') state.shape = val;
-            else if (group === 'face') state.face = val;
-            else if (group === 'hair') state.hair = val;
-            else if (group === 'outfit') state.outfit = val;
-            applyHairClass();
-            applyFaceClass();
-            applyBodyClass();
-            outfitColor();
-            calcPrice();
-            updateReviewText();
-            persist();
-        });
-    });
-
-    chips.forEach(function (chip) {
-        chip.classList.remove('is-selected');
-    });
-    chips.forEach(function (chip) {
-        const group = chip.dataset.group;
-        if (
-            (group === 'base' && chip.dataset.value === state.base) ||
-            (group === 'shape' && chip.dataset.value === state.shape) ||
-            (group === 'face' && chip.dataset.value === state.face) ||
-            (group === 'hair' && chip.dataset.value === state.hair) ||
-            (group === 'outfit' && chip.dataset.value === state.outfit)
-        ) {
-            chip.classList.add('is-selected');
-        }
-    });
-
-    applyPalette(state.palette);
-    applyHairClass();
-    applyFaceClass();
-    applyBodyClass();
-    outfitColor();
-    calcPrice();
-    updateReviewText();
-    setStep(state.step);
 
     if (btnReset) {
         btnReset.addEventListener('click', function () {
             localStorage.removeItem(STORAGE_KEY);
-            state = { step: 0, palette: 'pink', base: 'single', shape: 'pillar', face: 'smile', hair: 'bob', outfit: 'pink' };
-            chips.forEach(function (c) {
-                c.classList.remove('is-selected');
-            });
-            root.querySelectorAll('.option-chip[data-group="base"][data-value="single"]')[0]?.classList.add('is-selected');
-            root.querySelectorAll('.option-chip[data-group="shape"][data-value="pillar"]')[0]?.classList.add('is-selected');
-            root.querySelectorAll('.option-chip[data-group="face"][data-value="smile"]')[0]?.classList.add('is-selected');
-            root.querySelectorAll('.option-chip[data-group="hair"][data-value="bob"]')[0]?.classList.add('is-selected');
-            root.querySelectorAll('.option-chip[data-group="outfit"][data-value="pink"]')[0]?.classList.add('is-selected');
-            applyPalette('pink');
-            state.palette = 'pink';
-            swatches.forEach(function (s) {
-                s.classList.toggle('is-picked', s.getAttribute('data-palette') === 'pink');
-            });
-            applyHairClass();
-            applyFaceClass();
-            applyBodyClass();
-            outfitColor();
-            calcPrice();
-            updateReviewText();
-            setStep(0);
+            state = { step: 0, base: 'MODEL BÚP BÊ NỮ.svg', features: {'EYEGLASS': null, 'MẮT': null, 'MÀY': null, 'MIỆNG': null, 'MŨI': null, 'TÓC': null}, outfit: null };
+            renderAll();
         });
     }
 
@@ -681,6 +673,8 @@ function initCustomize() {
             window.location.href = 'soon.html';
         });
     }
+
+    renderAll();
 }
 
 setLanguage(getLang());

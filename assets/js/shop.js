@@ -42,7 +42,7 @@ const texts = {
                 'badge_best': 'BÁN CHẠY', 'badge_trend': 'THỊNH HÀNH',
                 'proc_title': 'QUY TRÌNH MUA HÀNG',
                 'ps1_title': 'CHỌN SẢN PHẨM', 'ps2_title': 'TUỲ CHỈNH THIẾT KẾ', 'ps3_title': 'XEM TRƯỚC', 'ps4_title': 'ĐẶT HÀNG',
-                'fcta_title': 'BẮT ĐẦU TẠO MẪU CỦA RIÊNG BẠN', 'fcta_desc': 'Biến ký ức thành nghệ thuật gỗ độc đáo.', 'fcta_btn': 'TẠO NGAY',
+                'fcta_title': 'Bạn đã sẵn sàng để chế tác món quà của riêng mình chưa?', 'fcta_desc': 'Thiết kế búp bê gỗ theo phong cách của bạn!', 'fcta_btn': 'THIẾT KẾ NGAY',
                 'ft_shop': 'Cửa Hàng', 'ft_dolls': 'Búp bê', 'ft_frames': 'Khung', 'ft_items': 'Đồ đính kèm', 'ft_themes': 'Chủ đề', 'ft_contact': 'Liên hệ',
                 'ft_support': 'Hỗ Trợ', 'ft_faq': 'Hỏi Đáp', 'ft_shipping': 'Vận Chuyển', 'ft_contact2': 'Liên hệ',
                 'ft_company': 'Công Ty', 'ft_about': 'Về chúng tôi', 'ft_blog': 'Blog', 'ft_careers': 'Tuyển dụng', 'ft_policies': 'Chính sách',

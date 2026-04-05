@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
     <link rel="stylesheet" href="assets/css/custom.css">
     <link rel="stylesheet" href="assets/css/frame-customize.css">
 </head>
+
 <body data-site-page="custom">
 
     <div id="site-header"></div>
@@ -26,268 +28,261 @@
         </nav>
 
         <div class="custom-slides-viewport">
-        <div class="custom-page-track" id="customPageTrack">
+            <div class="custom-page-track" id="customPageTrack">
 
-        <section id="custom-intro" class="custom-studio-slide custom-intro custom-slide--active" aria-label="Product" aria-hidden="false">
-            <div class="custom-intro-fill" role="img" aria-label="Image placeholder"></div>
-        </section>
+                <section id="custom-intro" class="custom-studio-slide custom-intro custom-slide--active"
+                    aria-label="Product" aria-hidden="false">
+                    <div class="custom-intro-fill" role="img" aria-label="Image placeholder"></div>
+                </section>
 
-        <section id="studio-doll" class="custom-studio-doll custom-studio-slide" aria-hidden="true">
-            <section class="custom-hero">
-                <div class="container">
-                    <h1 data-i18n="cu_title">DOLL CUSTOMIZE STUDIO</h1>
-                    <p data-i18n="cu_intro">Pick a mood, walk through each step, and watch your wooden doll preview update. Save your draft to continue later.</p>
-                </div>
-            </section>
+                <section id="studio-doll" class="custom-studio-doll custom-studio-slide" aria-hidden="true">
+                    <section class="custom-hero">
+                        <div class="container">
+                            <h1 data-i18n="cu_title">DOLL CUSTOMIZE STUDIO</h1>
+                            <p data-i18n="cu_intro">Pick a mood, walk through each step, and watch your wooden doll
+                                preview update. Save your draft to continue later.</p>
+                        </div>
+                    </section>
 
-            <div class="container">
-                <p class="mood-board-label" data-i18n="cu_mood">Mood & palette</p>
-                <div class="mood-board" role="group" aria-label="Mood palette">
-                    <button type="button" class="mood-swatch" data-palette="cream" title="Cream"></button>
-                    <button type="button" class="mood-swatch" data-palette="brown" title="Brown"></button>
-                    <button type="button" class="mood-swatch is-picked" data-palette="pink" title="Pink"></button>
-                    <button type="button" class="mood-swatch" data-palette="mint" title="Mint"></button>
-                    <button type="button" class="mood-swatch" data-palette="white" title="White"></button>
-                </div>
+                    <div class="container">
+                        <nav class="custom-steps" aria-label="Customize steps">
+                            <button type="button" class="custom-step-btn is-active">1. Base</button>
+                            <button type="button" class="custom-step-btn">2. Face</button>
+                            <button type="button" class="custom-step-btn">3. Outfit</button>
+                            <button type="button" class="custom-step-btn">4. Review</button>
+                        </nav>
 
-                <nav class="custom-steps" aria-label="Customize steps">
-                    <button type="button" class="custom-step-btn is-active" data-i18n="cu_step1">1. Base</button>
-                    <button type="button" class="custom-step-btn" data-i18n="cu_step2">2. Face</button>
-                    <button type="button" class="custom-step-btn" data-i18n="cu_step3">3. Hair</button>
-                    <button type="button" class="custom-step-btn" data-i18n="cu_step4">4. Outfit</button>
-                    <button type="button" class="custom-step-btn" data-i18n="cu_step5">5. Review</button>
-                </nav>
-
-                <div class="custom-layout">
-                    <div class="custom-preview-wrap">
-                        <div class="custom-preview">
-                            <div class="doll-figure peg-doll" aria-hidden="true">
-                                <div class="peg-doll-inner">
-                                    <div class="doll-hair peg-hair style-bob"></div>
-                                    <div class="peg-head">
-                                        <div class="peg-head-surface"></div>
-                                        <div class="doll-face peg-face expression-soft"><i class="fa-solid fa-face-smile"></i></div>
+                        <div class="custom-layout">
+                            <div class="custom-preview-wrap">
+                                <div class="custom-preview">
+                                    <div class="doll-stage" aria-hidden="true" id="dollStage">
+                                        <!-- Dynamics layers here -->
                                     </div>
-                                    <div class="doll-body peg-body peg-body--cylinder size-mini"><span class="peg-body-tint" aria-hidden="true"></span></div>
+                                    <p class="custom-preview-hint" data-i18n="cu_preview_hint">Preview — final wood
+                                        carving may vary slightly.</p>
                                 </div>
                             </div>
-                            <p class="custom-preview-ref"><img src="assets/images/peg-dolls-reference.png" alt="Wooden peg dolls reference" width="120" height="72" loading="lazy" decoding="async"></p>
-                            <p class="custom-preview-hint" data-i18n="cu_preview_hint">Preview — final wood carving may vary slightly.</p>
+
+                            <div class="custom-panels">
+                                <div class="custom-panel is-visible" data-panel="0">
+                                    <h2 class="panel-title">1. Base</h2>
+                                    <p class="panel-desc">Choose your base doll model.</p>
+                                    <div class="option-grid option-grid--two doll-base-list" id="dollBaseList">
+                                    </div>
+                                </div>
+                                <div class="custom-panel" data-panel="1">
+                                    <h2 class="panel-title">2. Facial Features & Hair</h2>
+                                    <p class="panel-desc">Customize your doll's face.</p>
+                                    <div class="feature-accordion" id="faceAccordion">
+                                    </div>
+                                </div>
+                                <div class="custom-panel" data-panel="2">
+                                    <h2 class="panel-title">3. Outfit</h2>
+                                    <p class="panel-desc">Pick an outfit.</p>
+                                    <div class="option-grid outfit-list" id="outfitList">
+                                    </div>
+                                </div>
+                                <div class="custom-panel" data-panel="3">
+                                    <h2 class="panel-title">4. Review</h2>
+                                    <p class="panel-desc">Summary of your designed doll.</p>
+                                    <div class="hand-drawn-box" style="margin-top:16px;">
+                                        <ul id="customReviewSummary"
+                                            style="font-size:16px;line-height:1.6;list-style:none;padding:0;margin:0;">
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="custom-summary">
+                            <div>
+                                <span data-i18n="sum_label">Estimated from</span>
+                                <strong class="custom-summary-price" id="customPrice">199,000 VND</strong>
+                                <p style="font-size:0.9rem;opacity:0.85;margin-top:6px;" data-i18n="sum_note">Final
+                                    quote after size & frame add-ons.</p>
+                            </div>
+                            <div class="custom-summary-actions">
+                                <button type="button" class="btn btn-outline" id="customReset"
+                                    data-i18n="btn_reset">Reset draft</button>
+                                <a href="#studio-frame" class="btn btn-dark" data-i18n="btn_next_frame">Frame &
+                                    add-ons</a>
+                                <button type="button" class="btn btn-dark" id="customCart"><span
+                                        data-i18n="btn_cart">Add to cart</span> (<span data-i18n="btn_cart_hint">Coming
+                                        soon</span>)</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="studio-frame" class="fc-page custom-studio-slide" aria-hidden="true">
+                    <section class="fc-hero">
+                        <div class="container">
+                            <h1 data-i18n="fc_title">Enhance your product</h1>
+                            <p data-i18n="fc_sub">Add special touches to make your product more meaningful and unique.
+                            </p>
+                        </div>
+                    </section>
+
+                    <div class="container fc-mood-wrap">
+                        <p class="mood-board-label" data-i18n="fc_mood">Mood & palette</p>
+                        <div class="mood-board" role="group" aria-label="Mood palette">
+                            <button type="button" class="mood-swatch" data-palette="cream" title="Cream"></button>
+                            <button type="button" class="mood-swatch" data-palette="brown" title="Brown"></button>
+                            <button type="button" class="mood-swatch is-picked" data-palette="pink"
+                                title="Pink"></button>
+                            <button type="button" class="mood-swatch" data-palette="mint" title="Mint"></button>
+                            <button type="button" class="mood-swatch" data-palette="white" title="White"></button>
                         </div>
                     </div>
 
-                    <div class="custom-panels">
-                        <div class="custom-panel is-visible" data-panel="0">
-                            <h2 class="panel-title" data-i18n="p1_title">Doll base</h2>
-                            <p class="panel-desc" data-i18n="p1_desc">Choose the scale of your set — we carve from a single plank story.</p>
-                            <div class="option-grid">
-                                <button type="button" class="option-chip is-selected" data-group="base" data-value="single"><i class="fa-solid fa-person"></i><span data-i18n="opt_single">Single doll</span></button>
-                                <button type="button" class="option-chip" data-group="base" data-value="couple"><i class="fa-solid fa-people-arrows"></i><span data-i18n="opt_couple">Couple</span></button>
-                                <button type="button" class="option-chip" data-group="base" data-value="family"><i class="fa-solid fa-people-group"></i><span data-i18n="opt_family">Family set</span></button>
-                            </div>
-                            <h3 class="panel-subtitle" data-i18n="p1_shape">Body silhouette</h3>
-                            <p class="panel-desc" data-i18n="p1_shape_desc">Cylindrical peg or tapered cone — like classic wooden blanks.</p>
-                            <div class="option-grid option-grid--two">
-                                <button type="button" class="option-chip is-selected" data-group="shape" data-value="pillar"><i class="fa-solid fa-grip-lines-vertical"></i><span data-i18n="opt_shape_pillar">Cylinder</span></button>
-                                <button type="button" class="option-chip" data-group="shape" data-value="cone"><i class="fa-solid fa-play" style="transform:rotate(-90deg);"></i><span data-i18n="opt_shape_cone">Triangle / cone</span></button>
-                            </div>
-                        </div>
-                        <div class="custom-panel" data-panel="1">
-                            <h2 class="panel-title" data-i18n="p2_title">Face expression</h2>
-                            <p class="panel-desc" data-i18n="p2_desc">Soft smile or playful wink — matches your frame story.</p>
-                            <div class="option-grid">
-                                <button type="button" class="option-chip is-selected" data-group="face" data-value="smile"><i class="fa-regular fa-face-smile"></i><span data-i18n="opt_smile">Warm smile</span></button>
-                                <button type="button" class="option-chip" data-group="face" data-value="wink"><i class="fa-solid fa-face-grin-wink"></i><span data-i18n="opt_wink">Playful wink</span></button>
-                                <button type="button" class="option-chip" data-group="face" data-value="calm"><i class="fa-solid fa-face-meh"></i><span data-i18n="opt_calm">Calm eyes</span></button>
+                    <div class="container fc-layout">
+                        <div class="fc-preview-col">
+                            <div class="fc-preview">
+                                <h3 data-i18n="fc_preview">Live preview</h3>
+                                <div id="fcFrameStage" class="fc-frame-stage" data-frame="natural">
+                                    <div id="fcBgLayer" class="fc-bg-layer" aria-hidden="true"></div>
+                                    <div id="fcLedWrap" class="fc-led-wrap is-off">
+                                        <div id="fcLedGlow" class="fc-led-glow" data-temp="warm"></div>
+                                    </div>
+                                    <div class="fc-doll-layer">
+                                        <i class="fa-solid fa-child-reaching fc-doll-silhouette" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                                <p class="fc-preview-caption"><span data-i18n="fc_preview_led">LED lighting (glowing
+                                        aura)</span><br><span data-i18n="fc_preview_hint">Live preview updates
+                                        instantly.</span></p>
                             </div>
                         </div>
-                        <div class="custom-panel" data-panel="2">
-                            <h2 class="panel-title" data-i18n="p3_title">Hair style</h2>
-                            <p class="panel-desc" data-i18n="p3_desc">Silhouette for carving reference — final wood tone follows your mood board.</p>
-                            <div class="option-grid">
-                                <button type="button" class="option-chip" data-group="hair" data-value="long"><i class="fa-solid fa-user"></i><span data-i18n="opt_h1">Long waves</span></button>
-                                <button type="button" class="option-chip is-selected" data-group="hair" data-value="bob"><i class="fa-solid fa-user"></i><span data-i18n="opt_h2">Bob cut</span></button>
-                                <button type="button" class="option-chip" data-group="hair" data-value="curly"><i class="fa-solid fa-user"></i><span data-i18n="opt_h3">Curly</span></button>
-                                <button type="button" class="option-chip" data-group="hair" data-value="short"><i class="fa-solid fa-user"></i><span data-i18n="opt_h4">Short crop</span></button>
-                            </div>
-                        </div>
-                        <div class="custom-panel" data-panel="3">
-                            <h2 class="panel-title" data-i18n="p4_title">Outfit theme</h2>
-                            <p class="panel-desc" data-i18n="p4_desc">Color block for preview — embroidery details in checkout.</p>
-                            <div class="option-grid">
-                                <button type="button" class="option-chip is-selected" data-group="outfit" data-value="pink"><i class="fa-solid fa-shirt"></i><span data-i18n="opt_o1">Pastel pink</span></button>
-                                <button type="button" class="option-chip" data-group="outfit" data-value="mint"><i class="fa-solid fa-shirt"></i><span data-i18n="opt_o2">Mint garden</span></button>
-                                <button type="button" class="option-chip" data-group="outfit" data-value="cream"><i class="fa-solid fa-shirt"></i><span data-i18n="opt_o3">Cream classic</span></button>
-                                <button type="button" class="option-chip" data-group="outfit" data-value="wood"><i class="fa-solid fa-shirt"></i><span data-i18n="opt_o4">Natural wood</span></button>
-                            </div>
-                        </div>
-                        <div class="custom-panel" data-panel="4">
-                            <h2 class="panel-title" data-i18n="p5_title">Summary</h2>
-                            <p class="panel-desc" data-i18n="p5_desc">Review your choices. Add to cart will open when the shop goes live.</p>
-                            <div class="hand-drawn-box" style="margin-top:16px;">
-                                <p id="customReviewSummary" style="font-size:16px;line-height:1.6;"></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="custom-summary">
-                    <div>
-                        <span data-i18n="sum_label">Estimated from</span>
-                        <strong class="custom-summary-price" id="customPrice">199,000 VND</strong>
-                        <p style="font-size:0.9rem;opacity:0.85;margin-top:6px;" data-i18n="sum_note">Final quote after size & frame add-ons.</p>
+                        <div class="fc-options">
+                            <input type="hidden" id="fcBgPresetIdx" value="0">
+
+                            <section id="sec-bg" class="fc-section">
+                                <h4><span class="fc-num">1</span> <span data-i18n="s1_title">Background</span></h4>
+                                <p class="mood-board-label" style="text-align:left;font-size:16px;"
+                                    data-i18n="s1_presets">Presets</p>
+                                <div class="fc-preset-grid" role="list">
+                                    <button type="button" class="fc-preset is-picked"
+                                        style="background:repeating-linear-gradient(45deg,var(--clr-pink)0 8px,transparent 8px 16px)"
+                                        aria-label="Preset 1"></button>
+                                    <button type="button" class="fc-preset"
+                                        style="background:repeating-linear-gradient(90deg,var(--clr-mint)0 10px,transparent 10px 20px)"></button>
+                                    <button type="button" class="fc-preset"
+                                        style="background:radial-gradient(circle at 30% 30%,var(--clr-pink)0 8px,transparent 9px) 0 0/24px 24px"></button>
+                                    <button type="button" class="fc-preset"
+                                        style="background:linear-gradient(135deg,#fcfee8 0%,#fed8e3 50%,#b5d1c1 100%)"></button>
+                                    <button type="button" class="fc-preset"
+                                        style="background:repeating-linear-gradient(0deg,rgba(116,82,63,0.12)0 4px,transparent 4px 8px)"></button>
+                                    <button type="button" class="fc-preset"
+                                        style="background:repeating-linear-gradient(45deg,#fed8e3 0 12px,#fcfee8 12px 24px)"></button>
+                                    <button type="button" class="fc-preset"
+                                        style="background:radial-gradient(ellipse at center,#b5d1c1 0%,#fcfee8 70%)"></button>
+                                    <button type="button" class="fc-preset"
+                                        style="background:repeating-conic-gradient(from 0deg,#fed8e3 0deg 10deg,transparent 10deg 20deg)"></button>
+                                    <button type="button" class="fc-preset"
+                                        style="background:linear-gradient(180deg,#fcfee8 0%,rgba(116,82,63,0.08) 100%)"></button>
+                                    <button type="button" class="fc-preset"
+                                        style="background:repeating-linear-gradient(135deg,var(--clr-brown)0 2px,transparent 2px 6px)"></button>
+                                </div>
+                                <div id="fcUploadZone" class="fc-upload-zone" role="button" tabindex="0">
+                                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                                    <span data-i18n="s1_upload">Upload your image</span>
+                                </div>
+                                <input type="file" id="fcFileInput" accept="image/*" hidden>
+                                <div class="fc-ai-row">
+                                    <input type="text" id="fcAiInput" data-i18n-placeholder="s1_ai_ph"
+                                        placeholder="Describe your dream background…">
+                                    <button type="button" class="btn btn-outline" data-i18n="s1_ai_btn">Generate
+                                        background</button>
+                                </div>
+                            </section>
+
+                            <section id="sec-frame" class="fc-section">
+                                <h4><span class="fc-num">2</span> <span data-i18n="s2_title">Frame</span></h4>
+                                <div class="fc-frame-mats">
+                                    <div class="fc-mat is-picked" data-mat="natural" role="button" tabindex="0">
+                                        <div class="fc-mat-inner"></div>
+                                        <span data-i18n="s2_mat_natural">Natural wood</span>
+                                    </div>
+                                    <div class="fc-mat" data-mat="dark" role="button" tabindex="0">
+                                        <div class="fc-mat-inner"></div>
+                                        <span data-i18n="s2_mat_dark">Dark wood</span>
+                                    </div>
+                                    <div class="fc-mat" data-mat="painted" role="button" tabindex="0">
+                                        <div class="fc-mat-inner"></div>
+                                        <span data-i18n="s2_mat_painted">Black / white</span>
+                                    </div>
+                                </div>
+                                <div class="fc-checks">
+                                    <label><input type="checkbox" id="fcGlass"> <span data-i18n="s2_glass">Glass
+                                            protection</span></label>
+                                    <label><input type="checkbox" id="fcPremium"> <span data-i18n="s2_premium">Premium
+                                            finishing</span></label>
+                                </div>
+                            </section>
+
+                            <section id="sec-enhance" class="fc-section fc-section--upsell">
+                                <h4><span class="fc-num">3</span> <span data-i18n="s3_title">Lighting</span></h4>
+                                <div class="fc-toggle-row">
+                                    <span data-i18n="s3_led">Add LED lighting</span>
+                                    <button type="button" id="fcLedSwitch" class="fc-switch" aria-pressed="false"
+                                        aria-label="LED"></button>
+                                </div>
+                                <div class="fc-radio-row">
+                                    <label><input type="radio" name="fcLedTemp" value="warm" checked> <span
+                                            data-i18n="s3_warm">Warm light</span></label>
+                                    <label><input type="radio" name="fcLedTemp" value="cool"> <span
+                                            data-i18n="s3_cool">Cool light</span></label>
+                                </div>
+                            </section>
+
+                            <section class="fc-section">
+                                <h4><span class="fc-num">4</span> <span data-i18n="s4_title">Engraving & message</span>
+                                </h4>
+                                <div class="fc-textarea-wrap">
+                                    <textarea id="fcEngrave" maxlength="120" placeholder=""></textarea>
+                                    <div class="fc-char-count"><span id="fcEngraveCount">0</span> / 120</div>
+                                </div>
+                                <label for="fcFont" data-i18n="s4_font"
+                                    style="display:block;margin:12px 0 6px;font-weight:700;">Font style</label>
+                                <select id="fcFont" class="custom-select"
+                                    style="width:100%;max-width:320px;border:2px solid var(--clr-brown);border-radius:10px;padding:10px;font-family:var(--font-body);">
+                                    <option value="hand">Handwritten</option>
+                                    <option value="serif">Classic serif</option>
+                                    <option value="round">Rounded</option>
+                                </select>
+                            </section>
+
+                            <section class="fc-section">
+                                <h4><span class="fc-num">5</span> <span data-i18n="s5_title">Gift packaging</span></h4>
+                                <div class="fc-pack-grid">
+                                    <button type="button" class="fc-pack is-picked" data-pack="standard">
+                                        <i class="fa-solid fa-box"></i>
+                                        <span data-i18n="pack_std">Standard (free)</span>
+                                    </button>
+                                    <button type="button" class="fc-pack" data-pack="premium">
+                                        <i class="fa-solid fa-gift"></i>
+                                        <span data-i18n="pack_prem">Premium box</span>
+                                    </button>
+                                    <button type="button" class="fc-pack" data-pack="card">
+                                        <i class="fa-regular fa-envelope"></i>
+                                        <span data-i18n="pack_card">Greeting card</span>
+                                    </button>
+                                </div>
+                            </section>
+
+                        </div>
                     </div>
-                    <div class="custom-summary-actions">
-                        <button type="button" class="btn btn-outline" id="customReset" data-i18n="btn_reset">Reset draft</button>
-                        <a href="#studio-frame" class="btn btn-dark" data-i18n="btn_next_frame">Frame & add-ons</a>
-                        <button type="button" class="btn btn-dark" id="customCart"><span data-i18n="btn_cart">Add to cart</span> (<span data-i18n="btn_cart_hint">Coming soon</span>)</button>
-                    </div>
-                </div>
+                </section>
+
             </div>
-        </section>
-
-        <section id="studio-frame" class="fc-page custom-studio-slide" aria-hidden="true">
-            <section class="fc-hero">
-                <div class="container">
-                    <h1 data-i18n="fc_title">Enhance your product</h1>
-                    <p data-i18n="fc_sub">Add special touches to make your product more meaningful and unique.</p>
-                </div>
-            </section>
-
-            <div class="container fc-mood-wrap">
-                <p class="mood-board-label" data-i18n="fc_mood">Mood & palette</p>
-                <div class="mood-board" role="group" aria-label="Mood palette">
-                    <button type="button" class="mood-swatch" data-palette="cream" title="Cream"></button>
-                    <button type="button" class="mood-swatch" data-palette="brown" title="Brown"></button>
-                    <button type="button" class="mood-swatch is-picked" data-palette="pink" title="Pink"></button>
-                    <button type="button" class="mood-swatch" data-palette="mint" title="Mint"></button>
-                    <button type="button" class="mood-swatch" data-palette="white" title="White"></button>
-                </div>
-            </div>
-
-            <div class="container fc-layout">
-                <div class="fc-preview-col">
-                    <div class="fc-preview">
-                        <h3 data-i18n="fc_preview">Live preview</h3>
-                        <div id="fcFrameStage" class="fc-frame-stage" data-frame="natural">
-                            <div id="fcBgLayer" class="fc-bg-layer" aria-hidden="true"></div>
-                            <div id="fcLedWrap" class="fc-led-wrap is-off">
-                                <div id="fcLedGlow" class="fc-led-glow" data-temp="warm"></div>
-                            </div>
-                            <div class="fc-doll-layer">
-                                <i class="fa-solid fa-child-reaching fc-doll-silhouette" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                        <p class="fc-preview-caption"><span data-i18n="fc_preview_led">LED lighting (glowing aura)</span><br><span data-i18n="fc_preview_hint">Live preview updates instantly.</span></p>
-                    </div>
-                </div>
-
-                <div class="fc-options">
-                    <input type="hidden" id="fcBgPresetIdx" value="0">
-
-                    <section id="sec-bg" class="fc-section">
-                        <h4><span class="fc-num">1</span> <span data-i18n="s1_title">Background</span></h4>
-                        <p class="mood-board-label" style="text-align:left;font-size:16px;" data-i18n="s1_presets">Presets</p>
-                        <div class="fc-preset-grid" role="list">
-                            <button type="button" class="fc-preset is-picked" style="background:repeating-linear-gradient(45deg,var(--clr-pink)0 8px,transparent 8px 16px)" aria-label="Preset 1"></button>
-                            <button type="button" class="fc-preset" style="background:repeating-linear-gradient(90deg,var(--clr-mint)0 10px,transparent 10px 20px)"></button>
-                            <button type="button" class="fc-preset" style="background:radial-gradient(circle at 30% 30%,var(--clr-pink)0 8px,transparent 9px) 0 0/24px 24px"></button>
-                            <button type="button" class="fc-preset" style="background:linear-gradient(135deg,#fcfee8 0%,#fed8e3 50%,#b5d1c1 100%)"></button>
-                            <button type="button" class="fc-preset" style="background:repeating-linear-gradient(0deg,rgba(116,82,63,0.12)0 4px,transparent 4px 8px)"></button>
-                            <button type="button" class="fc-preset" style="background:repeating-linear-gradient(45deg,#fed8e3 0 12px,#fcfee8 12px 24px)"></button>
-                            <button type="button" class="fc-preset" style="background:radial-gradient(ellipse at center,#b5d1c1 0%,#fcfee8 70%)"></button>
-                            <button type="button" class="fc-preset" style="background:repeating-conic-gradient(from 0deg,#fed8e3 0deg 10deg,transparent 10deg 20deg)"></button>
-                            <button type="button" class="fc-preset" style="background:linear-gradient(180deg,#fcfee8 0%,rgba(116,82,63,0.08) 100%)"></button>
-                            <button type="button" class="fc-preset" style="background:repeating-linear-gradient(135deg,var(--clr-brown)0 2px,transparent 2px 6px)"></button>
-                        </div>
-                        <div id="fcUploadZone" class="fc-upload-zone" role="button" tabindex="0">
-                            <i class="fa-solid fa-cloud-arrow-up"></i>
-                            <span data-i18n="s1_upload">Upload your image</span>
-                        </div>
-                        <input type="file" id="fcFileInput" accept="image/*" hidden>
-                        <div class="fc-ai-row">
-                            <input type="text" id="fcAiInput" data-i18n-placeholder="s1_ai_ph" placeholder="Describe your dream background…">
-                            <button type="button" class="btn btn-outline" data-i18n="s1_ai_btn">Generate background</button>
-                        </div>
-                    </section>
-
-                    <section id="sec-frame" class="fc-section">
-                        <h4><span class="fc-num">2</span> <span data-i18n="s2_title">Frame</span></h4>
-                        <div class="fc-frame-mats">
-                            <div class="fc-mat is-picked" data-mat="natural" role="button" tabindex="0">
-                                <div class="fc-mat-inner"></div>
-                                <span data-i18n="s2_mat_natural">Natural wood</span>
-                            </div>
-                            <div class="fc-mat" data-mat="dark" role="button" tabindex="0">
-                                <div class="fc-mat-inner"></div>
-                                <span data-i18n="s2_mat_dark">Dark wood</span>
-                            </div>
-                            <div class="fc-mat" data-mat="painted" role="button" tabindex="0">
-                                <div class="fc-mat-inner"></div>
-                                <span data-i18n="s2_mat_painted">Black / white</span>
-                            </div>
-                        </div>
-                        <div class="fc-checks">
-                            <label><input type="checkbox" id="fcGlass"> <span data-i18n="s2_glass">Glass protection</span></label>
-                            <label><input type="checkbox" id="fcPremium"> <span data-i18n="s2_premium">Premium finishing</span></label>
-                        </div>
-                    </section>
-
-                    <section id="sec-enhance" class="fc-section fc-section--upsell">
-                        <h4><span class="fc-num">3</span> <span data-i18n="s3_title">Lighting</span></h4>
-                        <div class="fc-toggle-row">
-                            <span data-i18n="s3_led">Add LED lighting</span>
-                            <button type="button" id="fcLedSwitch" class="fc-switch" aria-pressed="false" aria-label="LED"></button>
-                        </div>
-                        <div class="fc-radio-row">
-                            <label><input type="radio" name="fcLedTemp" value="warm" checked> <span data-i18n="s3_warm">Warm light</span></label>
-                            <label><input type="radio" name="fcLedTemp" value="cool"> <span data-i18n="s3_cool">Cool light</span></label>
-                        </div>
-                    </section>
-
-                    <section class="fc-section">
-                        <h4><span class="fc-num">4</span> <span data-i18n="s4_title">Engraving & message</span></h4>
-                        <div class="fc-textarea-wrap">
-                            <textarea id="fcEngrave" maxlength="120" placeholder=""></textarea>
-                            <div class="fc-char-count"><span id="fcEngraveCount">0</span> / 120</div>
-                        </div>
-                        <label for="fcFont" data-i18n="s4_font" style="display:block;margin:12px 0 6px;font-weight:700;">Font style</label>
-                        <select id="fcFont" class="custom-select" style="width:100%;max-width:320px;border:2px solid var(--clr-brown);border-radius:10px;padding:10px;font-family:var(--font-body);">
-                            <option value="hand">Handwritten</option>
-                            <option value="serif">Classic serif</option>
-                            <option value="round">Rounded</option>
-                        </select>
-                    </section>
-
-                    <section class="fc-section">
-                        <h4><span class="fc-num">5</span> <span data-i18n="s5_title">Gift packaging</span></h4>
-                        <div class="fc-pack-grid">
-                            <button type="button" class="fc-pack is-picked" data-pack="standard">
-                                <i class="fa-solid fa-box"></i>
-                                <span data-i18n="pack_std">Standard (free)</span>
-                            </button>
-                            <button type="button" class="fc-pack" data-pack="premium">
-                                <i class="fa-solid fa-gift"></i>
-                                <span data-i18n="pack_prem">Premium box</span>
-                            </button>
-                            <button type="button" class="fc-pack" data-pack="card">
-                                <i class="fa-regular fa-envelope"></i>
-                                <span data-i18n="pack_card">Greeting card</span>
-                            </button>
-                        </div>
-                    </section>
-
-                </div>
-            </div>
-        </section>
-
-        </div>
         </div>
     </main>
 
     <div id="site-footer"></div>
 
-    <script>window.MODOLL_PAGE_SCRIPTS = ['assets/js/music-nav.js', 'assets/js/custom.js', 'assets/js/frame-customize.js'];</script>
+    <script>window.MODOLL_PAGE_SCRIPTS = ['assets/js/doll_assets.js', 'assets/js/music-nav.js', 'assets/js/custom.js', 'assets/js/frame-customize.js'];</script>
     <script src="assets/js/layout.js"></script>
 </body>
+
 </html>
