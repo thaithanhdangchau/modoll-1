@@ -32,23 +32,6 @@ const texts = {
                 'ft_support': 'HỖ TRỢ', 'ft_faq': 'Hỏi Đáp', 'ft_shipping': 'Giao Hàng', 'ft_contact2': 'Liên Hệ',
                 'ft_company': 'CÔNG TY', 'ft_about': 'Về Chúng Tôi', 'ft_blog': 'Blog', 'ft_careers': 'Tuyển Dụng', 'ft_policies': 'Chính Sách',
                 'ft_sub_title': 'Đăng ký nhận Ưu đãi.', 'ft_sub_btn': 'Tham Gia'
-            },
-            'fr': {
-                'nav_home': 'ACCUEIL', 'nav_shop': 'BOUTIQUE', 'nav_custom': 'PERSONNALISER', 'nav_about': 'À PROPOS', 'nav_contact': 'CONTACT', 'nav_blog': 'BLOG',
-                'side_title': 'GUIDE DES POLITIQUES',
-                'nav_p1': 'Politique d\'achat', 'nav_p2': 'Politique de paiement', 'nav_p3': 'Livraison & Expédition', 'nav_p4': 'Personnalisation & Révisions', 'nav_p5': 'Retours & Remboursements', 'nav_p6': 'FAQ',
-                'main_title': 'Politiques & Service client',
-                't_p1': 'Politique d\'achat', 'desc_p1': 'Parcours de commande pour vos poupées en bois personnalisées : transformez vos souvenirs en œuvres d\'art uniques.', 'flow1': 'Choisir le produit', 'flow2': 'Personnaliser', 'flow3': 'Aperçu en direct', 'flow4': 'Panier & Paiement', 'oc_title': 'Confirmation de commande', 'oc_desc': 'Après validation, notre équipe vérifie la création. Nous vous contactons sous 24 h si des ajustements ou précisions sont nécessaires.',
-                't_p2': 'Politique de paiement', 'desc_p2': 'Modes de paiement acceptés : virement bancaire, paiement en ligne.', 'dp_title': 'Règles d\'acompte', 'dp_low_t': 'commandes < 400 K :', 'dp_low_d': 'Paiement intégral requis.', 'dp_high_t': 'commandes > 400 K :', 'dp_high_d': 'Acompte de 50 % requis.', 'rem_t': 'Solde restant :', 'rem_d': 'À régler avant expédition.',
-                't_p3': 'Livraison & Expédition', 'sd1_t': 'Délai de fabrication estimé', 'sd1_v': '(ex. 3 à 5 jours)', 'sd2_t': 'Délai de livraison estimé', 'sd2_v': '(ex. 2 à 4 jours)', 'sd3_t': 'Frais de port', 'sd3_v': '(Calculés au paiement)', 'sd_alert_t': 'Commande urgente :', 'sd_alert_d': 'Contactez-nous directement si vous avez besoin d\'une livraison accélérée.',
-                't_p4': 'Personnalisation & Révisions', 'rev_desc': 'Aperçu en temps réel avant fabrication. Tous les détails personnalisés sont validés avant le travail de nos artisans.', 'lim_t': 'Limites de révision', 'lim_1': 'Modifications mineures (gratuites)', 'lim_2': 'Changements majeurs (surcoût)', 'type_t': 'Types de création', 'type_1': 'Commandes sur modèle', 'type_2': 'Créations assistées par IA', 'type_3': 'Demandes dessinées à la main',
-                't_p5': 'Retours & Remboursements', 'rt1_t': 'Produit endommagé / erreur', 'rt1_v': 'Conditions de retour', 'rt2_t': 'Produit personnalisé', 'rt2_v': 'NON REMBOURSABLE', 'rn1': 'Demande d\'assistance', 'rn2': 'Vérification', 'rn3': 'Décision',
-                't_p6': 'Questions fréquentes (FAQ)', 'q1_q': 'Q : Combien de temps prend la personnalisation ?', 'q1_a': 'R : En général 3 à 5 jours pour la sculpture et la peinture à la main, selon la complexité du design.', 'q2_q': 'Q : Puis-je modifier après commande ?', 'q2_a': 'R : Petites modifications possibles dans les 12 premières heures. Une fois la production lancée, tout changement peut entraîner des frais supplémentaires.', 'q3_q': 'Q : Le produit sera-t-il identique à l\'aperçu ?', 'q3_a': 'R : L\'aperçu 3D est très fidèle. Chaque pièce étant peinte à la main sur du bois naturel, de légères variations de couleur et de veinure sont possibles — c\'est le charme de l\'artisanat.', 'q4_q': 'Q : Et si j\'ai besoin d\'urgence ?', 'q4_a': 'R : Voir la note « commande urgente » dans Livraison et contactez le support. Traitement accéléré possible sous réserve de disponibilité (frais supplémentaires).',
-                'btn_cust': 'Commencer la personnalisation', 'btn_cont': 'Nous contacter',
-                'ft_shop': 'BOUTIQUE', 'ft_dolls': 'Poupées', 'ft_frames': 'Cadres', 'ft_items': 'Accessoires', 'ft_themes': 'Thèmes', 'ft_contact': 'Contact',
-                'ft_support': 'AIDE', 'ft_faq': 'FAQ', 'ft_shipping': 'Livraison', 'ft_contact2': 'Contact',
-                'ft_company': 'ENTREPRISE', 'ft_about': 'À propos', 'ft_blog': 'Blog', 'ft_careers': 'Carrières', 'ft_policies': 'Politiques',
-                'ft_sub_title': 'Inscrivez-vous aux offres.', 'ft_sub_btn': 'S\'inscrire'
             }
         };
 

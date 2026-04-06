@@ -25,19 +25,6 @@ const texts = {
         cs_btn: 'Về trang chủ',
         cu_sub: 'Tùy chỉnh',
         cu_p: 'Studio cá nhân hóa chưa mở. Hãy đón xem.'
-    },
-    fr: {
-        nav_home: 'Accueil',
-        nav_shop: 'Boutique',
-        nav_custom: 'Personnaliser',
-        nav_about: 'À propos',
-        nav_contact: 'Contact',
-        nav_blog: 'Blog',
-        cs_h1: 'Bientôt disponible',
-        cs_p: 'Cette page est en construction. Revenez plus tard.',
-        cs_btn: 'Retour à l’accueil',
-        cu_sub: 'Personnaliser',
-        cu_p: 'L’atelier de personnalisation n’est pas encore disponible. Restez à l’écoute.'
     }
 };
 

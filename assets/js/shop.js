@@ -47,32 +47,6 @@ const texts = {
                 'ft_support': 'Hỗ Trợ', 'ft_faq': 'Hỏi Đáp', 'ft_shipping': 'Vận Chuyển', 'ft_contact2': 'Liên hệ',
                 'ft_company': 'Công Ty', 'ft_about': 'Về chúng tôi', 'ft_blog': 'Blog', 'ft_careers': 'Tuyển dụng', 'ft_policies': 'Chính sách',
                 'ft_sub_title': 'Đăng ký nhận tin', 'ft_sub_btn': 'Tham gia'
-            },
-            'fr': {
-                'nav_home': 'Accueil', 'nav_shop': 'Boutique', 'nav_custom': 'Personnaliser', 'nav_about': 'À propos', 'nav_contact': 'Contact', 'nav_blog': 'Blog',
-                'shop_title': 'CATÉGORIES DE PRODUITS', 'shop_desc': 'Découvrez notre gamme de poupées en bois entièrement personnalisables et de cadres en bois sur mesure. Transformez vos souvenirs en art artisanal unique.',
-                'tab_dolls': 'POUPÉES EN BOIS', 'tab_frames': 'CADRES EN BOIS', 'tab_accs': 'ACCESSOIRES',
-                'filter_price': 'GAMME DE PRIX', 'filter_style': 'STYLE', 'filter_occ': 'OCCASION',
-                'prod_single_name': 'Poupée seule', 'prod_single_price': 'À partir de 199 000 VND', 'prod_single_desc': 'Une poupée en bois — visage, cheveux et tenue.',
-                'prod_couple_name': 'Couple', 'prod_couple_price': 'À partir de 359 000 VND', 'prod_couple_desc': 'Deux poupées assorties pour un duo.',
-                'prod_family_name': 'Set famille', 'prod_family_price': 'À partir de 599 000 VND', 'prod_family_desc': 'Plusieurs personnages — votre histoire en bois.',
-                'btn_custom_now': 'PERSONNALISER MAINTENANT',
-                'feat_title': 'PRODUITS ENTIÈREMENT PERSONNALISABLES',
-                'fc1_title': 'PERSONNALISER LES PERSONNAGES', 'fc1_desc': 'Concevez chaque détail : visages, tenues, cheveux, accessoires.',
-                'fc2_title': 'PERSONNALISER L’ARRIÈRE-PLAN', 'fc2_desc': 'Choisissez une scène prédéfinie ou importez une photo pour les cadres.',
-                'fc3_title': 'PERSONNALISER LE STYLE DU CADRE', 'fc3_desc': 'Sélectionnez le matériau et la finition du cadre idéals.',
-                'best_title': 'COUPS DE CŒUR & BEST-SELLERS',
-                'best_occ1_name': 'Remise de diplôme', 'best_occ1_price': 'À partir de 199 000 VND', 'best_occ1_desc': 'Célébrez l’étape — poupées en bois sur mesure pour les diplômés.',
-                'best_occ2_name': 'Anniversaire', 'best_occ2_price': 'À partir de 359 000 VND', 'best_occ2_desc': 'Souvenirs en bois pour vos moments marquants à deux.',
-                'best_occ3_name': 'Moments en famille', 'best_occ3_price': 'À partir de 599 000 VND', 'best_occ3_desc': 'Sets multi-personnages pour figurer votre tribu en bois.',
-                'badge_best': 'BEST-SELLER', 'badge_trend': 'TENDANCE',
-                'proc_title': 'APERÇU DU PARCOURS',
-                'ps1_title': 'CHOISIR', 'ps2_title': 'PERSONNALISER', 'ps3_title': 'APERÇU', 'ps4_title': 'COMMANDER',
-                'fcta_title': 'COMMENCEZ VOTRE CRÉATION', 'fcta_desc': 'Transformez vos souvenirs en art en bois unique.', 'fcta_btn': 'CRÉER MAINTENANT',
-                'ft_shop': 'Boutique', 'ft_dolls': 'Poupées', 'ft_frames': 'Cadres', 'ft_items': 'Articles', 'ft_themes': 'Thèmes', 'ft_contact': 'Nous contacter',
-                'ft_support': 'Assistance', 'ft_faq': 'FAQ', 'ft_shipping': 'Livraison', 'ft_contact2': 'Contact',
-                'ft_company': 'Entreprise', 'ft_about': 'À propos', 'ft_blog': 'Blog', 'ft_careers': 'Carrières', 'ft_policies': 'Politiques',
-                'ft_sub_title': 'Inscrivez-vous aux offres.', 'ft_sub_btn': 'S’inscrire'
             }
         };
 

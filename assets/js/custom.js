@@ -14,8 +14,8 @@ const customTexts = {
         cu_preview_hint: 'Preview — the final wood carving may vary slightly.',
         cu_mood: 'Mood & Palette',
         cu_step1: '1. Base',
-        cu_step2: '2. Facial Features',
-        cu_step3: '3. Outfit',
+        cu_step2: '2. Outfit',
+        cu_step3: '3. Facial Features',
         cu_step4: '4. Review',
         'p1_title': 'Doll base',
         'p1_desc': 'Choose the scale of your set — we carve from a single plank story.',
@@ -23,11 +23,11 @@ const customTexts = {
         'p1_shape_desc': 'Cylindrical peg or tapered cone — like classic wooden blanks.',
         'opt_shape_pillar': 'Cylinder',
         'opt_shape_cone': 'Triangle / cone',
-        'p2_title': 'Face expression',
-        'p2_desc': 'Soft smile or playful wink — matches your frame story.',
-        'p3_title': 'Hair style',
-        'p3_desc': 'Silhouette for carving reference — final wood tone follows your mood board.',
-        'p4_title': 'Outfit theme',
+        'p2_title': 'Outfit theme',
+        'p2_desc': 'Color block for preview — embroidery details in checkout.',
+        'p3_title': 'Facial Features & Hair',
+        'p3_desc': 'Customize your doll\'s facial features and hair.',
+        'p4_title': 'Summary',
         'p4_desc': 'Color block for preview — embroidery details in checkout.',
         'p5_title': 'Summary',
         'p5_desc': 'Review your choices. Add to cart will open when the shop goes live.',
@@ -136,8 +136,8 @@ const customTexts = {
         cu_preview_hint: 'Bản xem trước — chi tiết đục gỗ thực tế có thể thay đổi nhẹ.',
         cu_mood: 'Mood & bảng màu',
         cu_step1: '1. Đế',
-        cu_step2: '2. Ngũ Quan',
-        cu_step3: '3. Trang Phục',
+        cu_step2: '2. Trang Phục',
+        cu_step3: '3. Ngũ Quan',
         cu_step4: '4. Xem lại',
         p1_title: 'Kiểu bộ',
         p1_desc: 'Chọn quy mô — chúng tôi đục từ một câu chuyện trên tấm gỗ.',
@@ -145,11 +145,11 @@ const customTexts = {
         p1_shape_desc: 'Dáng trụ (thẳng) hoặc dáng tam giác / thân thuôn — giống phôi gỗ cổ điển.',
         opt_shape_pillar: 'Dáng trụ',
         opt_shape_cone: 'Dáng tam giác (nón)',
-        p2_title: 'Biểu cảm',
-        p2_desc: 'Cười nhẹ hay nháy mắt tinh nghịch — phù hợp khung tranh của bạn.',
-        p3_title: 'Kiểu tóc',
-        p3_desc: 'Hình khối tham chiếu — tông gỗ cuối theo mood board.',
-        p4_title: 'Tông trang phục',
+        p2_title: 'Tông trang phục',
+        p2_desc: 'Khối màu xem trước — chi tiết thêu khi đặt hàng.',
+        p3_title: 'Ngũ quan & Tóc',
+        p3_desc: 'Tùy chỉnh ngũ quan và kiểu tóc cho búp bê.',
+        p4_title: 'Tóm tắt',
         p4_desc: 'Khối màu xem trước — chi tiết thêu khi đặt hàng.',
         p5_title: 'Tóm tắt',
         p5_desc: 'Xem lại lựa chọn. Giỏ hàng mở khi cửa hàng sẵn sàng.',
@@ -245,129 +245,6 @@ const customTexts = {
         ft_policies: 'Chính sách',
         ft_sub_title: 'Đăng ký nhận tin',
         ft_sub_btn: 'Tham gia'
-    },
-    fr: {
-        nav_home: 'ACCUEIL',
-        nav_shop: 'BOUTIQUE',
-        nav_custom: 'PERSONNALISER',
-        nav_about: 'À PROPOS',
-        nav_contact: 'CONTACT',
-        nav_blog: 'BLOG',
-        cu_title: 'ATELIER POUPÉE SUR MESURE',
-        cu_intro: 'Choisissez une ambiance, suivez les étapes et voyez l’aperçu évoluer. Sauvegardez votre brouillon pour plus tard.',
-        cu_preview_hint: 'Aperçu — la gravure finale bois peut varier légèrement.',
-        cu_mood: 'Ambiance & palette',
-        cu_step1: '1. Base',
-        cu_step2: '2. Visage',
-        cu_step3: '3. Cheveux',
-        cu_step4: '4. Tenue',
-        cu_step5: '5. Récap',
-        p1_title: 'Base de la poupée',
-        p1_desc: 'Échelle du set — sculpté depuis une même planche.',
-        p1_shape: 'Silhouette du corps',
-        p1_shape_desc: 'Corps cylindrique ou cône — comme les pions en bois bruts.',
-        opt_shape_pillar: 'Cylindre',
-        opt_shape_cone: 'Triangle / cône',
-        p2_title: 'Expression',
-        p2_desc: 'Sourire doux ou clin d’œil — selon votre histoire.',
-        p3_title: 'Coiffure',
-        p3_desc: 'Silhouette pour la gravure — teinte bois selon la palette.',
-        p4_title: 'Thème tenue',
-        p4_desc: 'Bloc couleur d’aperçu — broderie à la commande.',
-        p5_title: 'Résumé',
-        p5_desc: 'Vérifiez vos choix. Panier bientôt disponible.',
-        opt_single: 'Poupée seule',
-        opt_couple: 'Couple',
-        opt_family: 'Famille',
-        opt_smile: 'Sourire doux',
-        opt_wink: 'Clin d’œil',
-        opt_calm: 'Regard calme',
-        opt_h1: 'Longues vagues',
-        opt_h2: 'Carré plongeant',
-        opt_h3: 'Bouclés',
-        opt_h4: 'Court',
-        opt_o1: 'Rose pastel',
-        opt_o2: 'Jardin mint',
-        opt_o3: 'Crème classique',
-        opt_o4: 'Bois naturel',
-        sum_label: 'À partir de',
-        sum_note: 'Devis final après cadre et taille.',
-        btn_reset: 'Réinitialiser',
-        btn_next_frame: 'Cadre & options',
-        btn_cart: 'Ajouter au panier',
-        btn_cart_hint: 'Bientôt',
-        fc_title: 'Enhancez votre produit',
-        fc_sub: 'Ajoutez des touches spéciales pour un cadeau plus unique et significatif.',
-        bc_product: 'Produit',
-        bc_doll: 'Poupée',
-        bc_bg: 'Fond',
-        bc_frame: 'Cadre',
-        bc_enhance: 'Options',
-        bc_checkout: 'Paiement',
-        intro_eyebrow: 'atelier modoll',
-        intro_title: 'Votre histoire en bois',
-        intro_lead:
-            'Créez la poupée, puis le cadre — un flux doux, deux chapitres. Utilisez les étapes ci-dessus ou commencez ici.',
-        intro_cap1: 'Bois chaleureux',
-        intro_cap2: 'Finitions artisanales',
-        intro_cap3: 'Cadres comme à la maison',
-        intro_cta_doll: 'Commencer par la poupée',
-        fc_mood: 'Ambiance & palette',
-        fc_preview: 'Aperçu en direct',
-        fc_preview_led: 'Éclairage LED (aura)',
-        fc_preview_hint: 'L’aperçu se met à jour instantanément.',
-        s1_title: 'Fond',
-        s1_presets: 'Préréglages',
-        s1_upload: 'Téléverser une image',
-        s1_ai_ph: 'Décrivez le fond souhaité…',
-        s1_ai_btn: 'Générer le fond',
-        s2_title: 'Cadre',
-        s2_mat_natural: 'Bois naturel',
-        s2_mat_dark: 'Bois foncé',
-        s2_mat_painted: 'Noir / blanc',
-        s2_glass: 'Protection verre',
-        s2_premium: 'Finition premium',
-        s3_title: 'Éclairage',
-        s3_led: 'Ajouter LED',
-        s3_warm: 'Lumière chaude',
-        s3_cool: 'Lumière froide',
-        s4_title: 'Gravure & message',
-        s4_font: 'Style de police',
-        font_default: 'Écriture manuscrite',
-        font_serif: 'Serif classique',
-        font_round: 'Arrondie',
-        s5_title: 'Emballage cadeau',
-        pack_std: 'Standard (gratuit)',
-        pack_prem: 'Coffret premium',
-        pack_card: 'Carte message',
-        sum_title: 'Récapitulatif',
-        line_base: 'Produit de base',
-        line_bg: 'Fond',
-        line_frame: 'Cadre',
-        line_led: 'LED',
-        line_engrave: 'Gravure',
-        line_pack: 'Emballage',
-        line_total: 'Total',
-        btn_checkout: 'Continuer vers le paiement',
-        btn_back: 'Retour à l’atelier',
-        suggest: 'Combo populaire : LED + coffret premium',
-        ft_shop: 'BOUTIQUE',
-        ft_dolls: 'Poupées',
-        ft_frames: 'Cadres',
-        ft_items: 'Articles',
-        ft_themes: 'Thèmes',
-        ft_contact: 'Nous contacter',
-        ft_support: 'AIDE',
-        ft_faq: 'FAQ',
-        ft_shipping: 'Livraison',
-        ft_contact2: 'Contact',
-        ft_company: 'ENTREPRISE',
-        ft_about: 'À propos',
-        ft_blog: 'Blog',
-        ft_careers: 'Carrières',
-        ft_policies: 'Politiques',
-        ft_sub_title: 'Offres & infos',
-        ft_sub_btn: 'S’inscrire'
     }
 };
 
@@ -475,7 +352,15 @@ function initCustomize() {
 
     function renderStage() {
         stage.innerHTML = '';
-        if (state.base) {
+        
+        // If outfit is selected, it REPLACES the base
+        if (state.outfit && state.outfit !== 'None') {
+            const img = document.createElement('img');
+            const folder = isMale() ? 'NAM' : 'NỮ';
+            img.src = 'assets/doll_parts/' + encodeURIComponent(folder) + '/' + encodeURIComponent(state.outfit);
+            img.className = 'layer-base outfit-as-base'; // Use cleaner class name
+            stage.appendChild(img);
+        } else {
             const img = document.createElement('img');
             img.src = 'assets/doll_parts/' + encodeURIComponent(state.base);
             img.className = 'layer-base';
@@ -499,14 +384,6 @@ function initCustomize() {
                 stage.appendChild(img);
             }
         });
-
-        if (state.outfit) {
-            const img = document.createElement('img');
-            const folder = isMale() ? 'NAM' : 'NỮ';
-            img.src = 'assets/doll_parts/' + encodeURIComponent(folder) + '/' + encodeURIComponent(state.outfit);
-            img.className = 'layer-outfit';
-            stage.appendChild(img);
-        }
     }
 
     function renderBasePanel() {

@@ -1,6 +1,6 @@
 /**
  * Nhạc nền đồng bộ giữa các trang: sessionStorage lưu vị trí + trạng thái bật/tắt do user chọn.
- * Mặc định coi là bật nhạc (chỉ tắt khi đã lưu '0' do user bấm tắt).
+ * Mặc định coi là tắt nhạc (chỉ bật khi đã lưu '1' do user bấm bật).
  */
 (function () {
     var KEY_PLAYING = 'modoll_music_playing';
@@ -110,9 +110,9 @@
                 t = parseFloat(String(sessionStorage.getItem(KEY_TIME) || '0'), 10) || 0;
             } catch (e) {}
 
-            var wantPlay = true;
+            var wantPlay = false;
             try {
-                if (sessionStorage.getItem(KEY_PLAYING) === '0') wantPlay = false;
+                if (sessionStorage.getItem(KEY_PLAYING) === '1') wantPlay = true;
             } catch (e) {}
 
             if (!wantPlay) {

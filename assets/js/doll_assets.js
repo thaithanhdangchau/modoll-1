@@ -55,33 +55,32 @@ const DOLL_ASSETS = {
   },
   "outfit": {
     "NAM": [
-      "Artboard 1.png",
-      "Trang ohuc 10.png",
-      "Trang ohuc 11.png",
-      "Trang ohuc 12.png",
-      "Trang ohuc 2.png",
-      "Trang ohuc 3.png",
-      "Trang ohuc 4.png",
-      "Trang ohuc 5.png",
-      "Trang ohuc 6.png",
-      "Trang ohuc 7.png",
-      "Trang ohuc 8.png",
-      "Trang ohuc 9.png"
+      "TRANG PHỤC NAM 1.png",
+      "TRANG PHỤC NAM 10.png",
+      "TRANG PHỤC NAM 11.png",
+      "TRANG PHỤC NAM 12.png",
+      "TRANG PHỤC NAM 2.png",
+      "TRANG PHỤC NAM 3.png",
+      "TRANG PHỤC NAM 4.png",
+      "TRANG PHỤC NAM 5.png",
+      "TRANG PHỤC NAM 6.png",
+      "TRANG PHỤC NAM 7.png",
+      "TRANG PHỤC NAM 8.png",
+      "TRANG PHỤC NAM 9.png"
     ],
     "NỮ": [
-      "Trang phục nữ 1.png",
-      "Trang phục nữ 10.png",
-      "Trang phục nữ 11.png",
-      "Trang phục nữ 12.png",
-      "Trang phục nữ 13.png",
-      "Trang phục nữ 2.png",
-      "Trang phục nữ 3.png",
-      "Trang phục nữ 4.png",
-      "Trang phục nữ 5.png",
-      "Trang phục nữ 6.png",
-      "Trang phục nữ 7.png",
-      "Trang phục nữ 8.png",
-      "Trang phục nữ 9.png"
+      "TRANG PHỤC NỮ 1.png",
+      "TRANG PHỤC NỮ 10.png",
+      "TRANG PHỤC NỮ 11.png",
+      "TRANG PHỤC NỮ 12.png",
+      "TRANG PHỤC NỮ 2.png",
+      "TRANG PHỤC NỮ 3.png",
+      "TRANG PHỤC NỮ 4.png",
+      "TRANG PHỤC NỮ 5.png",
+      "TRANG PHỤC NỮ 6.png",
+      "TRANG PHỤC NỮ 7.png",
+      "TRANG PHỤC NỮ 8.png",
+      "TRANG PHỤC NỮ 9.png"
     ]
   }
 };

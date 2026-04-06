@@ -1,11 +1,11 @@
 /**
- * Đồng bộ EN / VI / FR: localStorage + cookie (path=/).
+ * Đồng bộ EN / VI: localStorage + cookie (path=/).
  * Lưu ngay khi bấm nút (capture) để không mất lựa chọn khi chuyển trang nhanh.
  */
 (function () {
     var KEY = 'modoll-lang';
     var COOKIE = 'modoll-lang';
-    var LANGS = ['en', 'vi', 'fr'];
+    var LANGS = ['en', 'vi'];
 
     function readCookie() {
         var m = document.cookie.match(new RegExp('(?:^|;\\s*)' + COOKIE + '=([^;]*)'));
@@ -33,7 +33,7 @@
         writeCookie(lang);
     }
 
-    /** Gọi trước onclick: luôn ghi storage khi user bấm EN/VI/FR */
+    /** Gọi trước onclick: luôn ghi storage khi user bấm EN/VI */
     document.addEventListener(
         'click',
         function (e) {
@@ -68,7 +68,7 @@
                 btn.classList.toggle('active', i === LANGS.indexOf(lang));
             }
         });
-        document.documentElement.lang = lang === 'vi' ? 'vi' : lang === 'fr' ? 'fr' : 'en';
+        document.documentElement.lang = lang === 'vi' ? 'vi' : 'en';
         persistOnly(lang);
     };
 })();

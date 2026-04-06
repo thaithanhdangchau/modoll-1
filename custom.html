@@ -8,7 +8,7 @@
     <script src="assets/js/lang.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="assets/css/home.css">
-    <link rel="stylesheet" href="assets/css/custom.css?v=4">
+    <link rel="stylesheet" href="assets/css/custom.css?v=15">
     <link rel="stylesheet" href="assets/css/frame-customize.css">
 </head>
 
@@ -39,23 +39,26 @@
                     <section class="custom-hero">
                         <div class="container">
                             <h1 data-i18n="cu_title">DOLL CUSTOMIZATION STUDIO</h1>
-                            <p data-i18n="cu_intro">Follow the steps below to customize your doll. Your draft is automatically saved.</p>
+                            <p data-i18n="cu_intro">Follow the steps below to customize your doll. Your draft is
+                                automatically saved.</p>
                         </div>
                     </section>
 
                     <div class="container">
                         <nav class="custom-steps" aria-label="Customize steps">
                             <button type="button" class="custom-step-btn is-active">1. Base</button>
-                            <button type="button" class="custom-step-btn">2. Facial Features</button>
-                            <button type="button" class="custom-step-btn">3. Outfit</button>
+                            <button type="button" class="custom-step-btn">2. Outfit</button>
+                            <button type="button" class="custom-step-btn">3. Facial Features</button>
                             <button type="button" class="custom-step-btn">4. Review</button>
                         </nav>
 
                         <div class="custom-layout">
                             <div class="custom-preview-wrap">
                                 <div class="custom-preview">
-                                    <div class="doll-stage" aria-hidden="true" id="dollStage">
-                                        <!-- Dynamics layers here -->
+                                    <div class="custom-preview-scaler">
+                                        <div class="doll-stage" aria-hidden="true" id="dollStage">
+                                            <!-- Dynamics layers here -->
+                                        </div>
                                     </div>
                                     <p class="custom-preview-hint" data-i18n="cu_preview_hint">Preview — final wood
                                         carving may vary slightly.</p>
@@ -70,15 +73,15 @@
                                     </div>
                                 </div>
                                 <div class="custom-panel" data-panel="1">
-                                    <h2 class="panel-title">2. Facial Features & Hair</h2>
-                                    <p class="panel-desc">Customize your doll's facial features and hair.</p>
-                                    <div class="feature-accordion" id="faceAccordion">
+                                    <h2 class="panel-title">2. Outfit</h2>
+                                    <p class="panel-desc">Choose an outfit for your doll.</p>
+                                    <div class="option-grid outfit-list" id="outfitList">
                                     </div>
                                 </div>
                                 <div class="custom-panel" data-panel="2">
-                                    <h2 class="panel-title">3. Outfit</h2>
-                                    <p class="panel-desc">Choose an outfit for your doll.</p>
-                                    <div class="option-grid outfit-list" id="outfitList">
+                                    <h2 class="panel-title">3. Facial Features & Hair</h2>
+                                    <p class="panel-desc">Customize your doll's facial features and hair.</p>
+                                    <div class="feature-accordion" id="faceAccordion">
                                     </div>
                                 </div>
                                 <div class="custom-panel" data-panel="3">
@@ -103,7 +106,8 @@
                             <div class="custom-summary-actions">
                                 <button type="button" class="btn btn-outline" id="customReset"
                                     data-i18n="btn_reset">Reset draft</button>
-                                <a href="#studio-frame" class="btn btn-dark" data-i18n="btn_next_frame">Next: Frame & Add-ons</a>
+                                <a href="#studio-frame" class="btn btn-dark" data-i18n="btn_next_frame">Next: Frame &
+                                    Add-ons</a>
                                 <button type="button" class="btn btn-dark" id="customCart"><span
                                         data-i18n="btn_cart">Add to Cart</span> (<span data-i18n="btn_cart_hint">Coming
                                         soon</span>)</button>
@@ -279,7 +283,7 @@
 
     <div id="site-footer"></div>
 
-    <script>window.MODOLL_PAGE_SCRIPTS = ['assets/js/doll_assets.js?v=2', 'assets/js/music-nav.js', 'assets/js/custom.js?v=2', 'assets/js/frame-customize.js'];</script>
+    <script>window.MODOLL_PAGE_SCRIPTS = ['assets/js/doll_assets.js?v=15', 'assets/js/music-nav.js', 'assets/js/custom.js?v=15', 'assets/js/frame-customize.js'];</script>
     <script src="assets/js/layout.js"></script>
 </body>
 
